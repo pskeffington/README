@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -15,6 +16,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 WEEKLY_DIR = ROOT / "docs" / "weekly"
+LATIN_SAFE_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
 
 def now_iso() -> str:
@@ -91,10 +93,22 @@ def is_operational(repo: dict[str, Any], configured: set[str]) -> bool:
     return bool(topics & operational_topics)
 
 
-def sanitize_repo(repo: dict[str, Any], configured_operational: set[str]) -> dict[str, Any]:
-    operational = is_operational(repo, configured_operational)
+def flag_repo(repo: dict[str, Any], operational: bool, public_status_repo: str) -> str:
+    name = str(repo.get("name", ""))
     visibility = str(repo.get("visibility") or ("private" if repo.get("private") else "public"))
     is_public = visibility == "public" or repo.get("private") is False
+    if operational and is_public:
+        return "PUBLIC_OPERATIONAL_REPO"
+    if operational and not LATIN_SAFE_RE.match(name):
+        return "NON_LATIN_OPERATIONAL_NAME"
+    if name.lower() == public_status_repo.lower() and visibility != "public":
+        return "STATUS_REPO_NOT_PUBLIC"
+    return ""
+
+
+def sanitize_repo(repo: dict[str, Any], configured_operational: set[str], public_status_repo: str) -> dict[str, Any]:
+    operational = is_operational(repo, configured_operational)
+    visibility = str(repo.get("visibility") or ("private" if repo.get("private") else "public"))
     return {
         "name": repo.get("name"),
         "full_name": repo.get("full_name"),
@@ -107,16 +121,17 @@ def sanitize_repo(repo: dict[str, Any], configured_operational: set[str]) -> dic
         "archived": bool(repo.get("archived")),
         "fork": bool(repo.get("fork")),
         "operational": operational,
-        "security_flag": "PUBLIC_OPERATIONAL_REPO" if operational and is_public else "",
+        "security_flag": flag_repo(repo, operational, public_status_repo),
     }
 
 
 def main() -> int:
     owner = os.environ.get("REPO_OWNER", "pskeffington")
     token = os.environ.get("REPO_SCAN_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    public_status_repo = os.environ.get("PUBLIC_STATUS_REPO", "README")
     configured_operational = {
         item.strip()
-        for item in os.environ.get("OPERATIONAL_REPOS", "Eagle-Eye,trans").split(",")
+        for item in os.environ.get("OPERATIONAL_REPOS", "Eagle-Eye,trans,trans-latin").split(",")
         if item.strip()
     }
 
@@ -125,20 +140,21 @@ def main() -> int:
 
     repos = collect_repos(owner, token)
     scanned_at = now_iso()
+    sanitized = [sanitize_repo(repo, configured_operational, public_status_repo) for repo in repos]
     inventory = {
         "owner": owner,
         "scanned_at": scanned_at,
         "repo_count": len(repos),
-        "repos": [sanitize_repo(repo, configured_operational) for repo in repos],
+        "repos": sanitized,
     }
 
-    security_flags = [repo for repo in inventory["repos"] if repo.get("security_flag")]
+    security_flags = [repo for repo in sanitized if repo.get("security_flag")]
     status = {
         "owner": owner,
         "scanned_at": scanned_at,
         "repo_count": len(repos),
         "security_flags": security_flags,
-        "projects": inventory["repos"],
+        "projects": sanitized,
     }
 
     (DATA_DIR / "repo_inventory.json").write_text(json.dumps(inventory, indent=2) + "\n", encoding="utf-8")
