@@ -29,7 +29,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_SCAN_TOKEN: ${{ secrets.REPO_SCAN_TOKEN }}
           REPO_OWNER: pskeffington
-          OPERATIONAL_REPOS: Eagle-Eye,trans,trans-latin
+          OPERATIONAL_REPOS: Eagle-Eye,trans
+          PUBLIC_SCHOLARLY_REPOS: trans-latin,Trans-heb
           PUBLIC_STATUS_REPO: README
         run: python scripts/scan_repos.py
 
