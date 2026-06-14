@@ -28,10 +28,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_SCAN_TOKEN: ${{ secrets.REPO_SCAN_TOKEN }}
-          REPO_OWNER: pskeffington
-          OPERATIONAL_REPOS: Eagle-Eye,trans
-          PUBLIC_SCHOLARLY_REPOS: trans-latin,Trans-heb
-          PUBLIC_STATUS_REPO: README
         run: python scripts/scan_repos.py
 
       - name: Render public status
@@ -41,7 +37,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md data/repo_inventory.json data/project_status.json docs/storyboard.md docs/weekly
+          git add README.md data/repo_inventory.json data/project_status.json data/repo_policy.json docs/storyboard.md docs/weekly
           if git diff --cached --quiet; then
             echo "No status changes to commit."
           else
