@@ -27,5 +27,8 @@ jobs:
       - name: Validate repository policy
         run: python scripts/validate_policy.py
 
-      - name: Validate renderer imports
-        run: python -m py_compile scripts/scan_repos.py scripts/render_status.py scripts/validate_policy.py
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/scan_repos.py scripts/render_status.py scripts/validate_policy.py tests/test_policy.py
+
+      - name: Run policy tests
+        run: python -m unittest discover -s tests -p "test_*.py"
