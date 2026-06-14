@@ -16,11 +16,32 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 WEEKLY_DIR = ROOT / "docs" / "weekly"
+POLICY_PATH = DATA_DIR / "repo_policy.json"
 LATIN_SAFE_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
 
 def parse_csv_env(name: str, default: str) -> set[str]:
     return {item.strip() for item in os.environ.get(name, default).split(",") if item.strip()}
+
+
+def load_policy() -> dict[str, Any]:
+    if not POLICY_PATH.exists():
+        return {}
+    return json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+
+
+def policy_names(policy: dict[str, Any], key: str, env_name: str, default: str) -> set[str]:
+    env_value = os.environ.get(env_name)
+    if env_value:
+        return parse_csv_env(env_name, default)
+    values = policy.get(key, [])
+    if isinstance(values, list):
+        return {str(item).strip() for item in values if str(item).strip()}
+    return parse_csv_env(env_name, default)
+
+
+def policy_text(policy: dict[str, Any], key: str, env_name: str, default: str) -> str:
+    return os.environ.get(env_name) or str(policy.get(key) or default)
 
 
 def now_iso() -> str:
@@ -127,6 +148,7 @@ def sanitize_repo(
     configured_operational: set[str],
     configured_public_scholarly: set[str],
     public_status_repo: str,
+    scholarly_purpose: str,
 ) -> dict[str, Any]:
     public_scholarly = is_public_scholarly(repo, configured_public_scholarly)
     operational = is_operational(repo, configured_operational, public_scholarly)
@@ -143,17 +165,30 @@ def sanitize_repo(
         "archived": bool(repo.get("archived")),
         "fork": bool(repo.get("fork")),
         "public_scholarly": public_scholarly,
+        "public_scholarly_purpose": scholarly_purpose if public_scholarly else "",
         "operational": operational,
         "security_flag": flag_repo(repo, operational, public_status_repo),
     }
 
 
 def main() -> int:
-    owner = os.environ.get("REPO_OWNER", "pskeffington")
+    policy = load_policy()
+    owner = os.environ.get("REPO_OWNER") or str(policy.get("owner") or "pskeffington")
     token = os.environ.get("REPO_SCAN_TOKEN") or os.environ.get("GITHUB_TOKEN")
-    public_status_repo = os.environ.get("PUBLIC_STATUS_REPO", "README")
-    configured_operational = parse_csv_env("OPERATIONAL_REPOS", "Eagle-Eye,trans")
-    configured_public_scholarly = parse_csv_env("PUBLIC_SCHOLARLY_REPOS", "trans-latin,Trans-heb")
+    public_status_repo = policy_text(policy, "public_status_repo", "PUBLIC_STATUS_REPO", "README")
+    configured_operational = policy_names(policy, "operational_repos", "OPERATIONAL_REPOS", "Eagle-Eye,trans")
+    configured_public_scholarly = policy_names(
+        policy,
+        "public_scholarly_repos",
+        "PUBLIC_SCHOLARLY_REPOS",
+        "trans-latin,Trans-heb",
+    )
+    scholarly_purpose = policy_text(
+        policy,
+        "public_scholarly_purpose",
+        "PUBLIC_SCHOLARLY_PURPOSE",
+        "Translation objects retained for free scholarly use.",
+    )
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
@@ -161,13 +196,24 @@ def main() -> int:
     repos = collect_repos(owner, token)
     scanned_at = now_iso()
     sanitized = [
-        sanitize_repo(repo, configured_operational, configured_public_scholarly, public_status_repo)
+        sanitize_repo(
+            repo,
+            configured_operational,
+            configured_public_scholarly,
+            public_status_repo,
+            scholarly_purpose,
+        )
         for repo in repos
     ]
     inventory = {
         "owner": owner,
         "scanned_at": scanned_at,
         "repo_count": len(repos),
+        "policy": {
+            "public_status_repo": public_status_repo,
+            "operational_repos": sorted(configured_operational),
+            "public_scholarly_repos": sorted(configured_public_scholarly),
+        },
         "repos": sanitized,
     }
 
