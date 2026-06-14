@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: weekly-repo-scan
+  cancel-in-progress: false
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -25,7 +29,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_SCAN_TOKEN: ${{ secrets.REPO_SCAN_TOKEN }}
           REPO_OWNER: pskeffington
-          OPERATIONAL_REPOS: Eagle-Eye,trans
+          OPERATIONAL_REPOS: Eagle-Eye,trans,trans-latin
+          PUBLIC_STATUS_REPO: README
         run: python scripts/scan_repos.py
 
       - name: Render public status
