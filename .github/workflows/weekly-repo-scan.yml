@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Validate repository policy
+        run: python scripts/validate_policy.py
+
       - name: Scan repositories
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
