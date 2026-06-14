@@ -29,8 +29,18 @@ def clean(value: Any) -> str:
     return text
 
 
+def category(repo: dict[str, Any]) -> str:
+    if repo.get("operational"):
+        return "Operational"
+    if repo.get("public_scholarly"):
+        return "Public scholarly"
+    if clean(repo.get("visibility")) == "public":
+        return "Public"
+    return "Private support"
+
+
 def build_project_table(projects: list[dict[str, Any]], limit: int = 25) -> str:
-    rows = ["| Project | Visibility | Status | Last Activity | Notes |", "|---|---:|---:|---:|---|"]
+    rows = ["| Project | Category | Visibility | Status | Last Activity | Notes |", "|---|---:|---:|---:|---:|---|"]
     for repo in projects[:limit]:
         name = clean(repo.get("name"))
         visibility = clean(repo.get("visibility"))
@@ -38,10 +48,44 @@ def build_project_table(projects: list[dict[str, Any]], limit: int = 25) -> str:
         last_activity = clean(repo.get("pushed_at"))[:10]
         note = clean(repo.get("description")) or "No public note."
         if repo.get("security_flag"):
-            note = "Security flag: operational repository is public."
-        rows.append(f"| {name} | {visibility} | {status} | {last_activity} | {note} |")
+            note = f"Security flag: {clean(repo.get('security_flag'))}."
+        rows.append(f"| {name} | {category(repo)} | {visibility} | {status} | {last_activity} | {note} |")
     if len(projects) > limit:
-        rows.append(f"| ... | ... | ... | ... | {len(projects) - limit} additional repositories in data/project_status.json. |")
+        rows.append(f"| ... | ... | ... | ... | ... | {len(projects) - limit} additional repositories in data/project_status.json. |")
+    return "\n".join(rows)
+
+
+def build_category_table(projects: list[dict[str, Any]]) -> str:
+    counts: dict[str, int] = {}
+    for repo in projects:
+        counts[category(repo)] = counts.get(category(repo), 0) + 1
+    rows = ["| Category | Count |", "|---|---:|"]
+    for label in ["Operational", "Public scholarly", "Public", "Private support"]:
+        rows.append(f"| {label} | {counts.get(label, 0)} |")
+    return "\n".join(rows)
+
+
+def build_scholarly_section(projects: list[dict[str, Any]]) -> str:
+    scholarly = [repo for repo in projects if repo.get("public_scholarly")]
+    if not scholarly:
+        return "No public scholarly repositories were detected in the latest visible scan."
+    rows = ["| Repository | Status | Last Activity | Public Purpose |", "|---|---:|---:|---|"]
+    for repo in scholarly:
+        rows.append(
+            f"| {clean(repo.get('name'))} | {clean(repo.get('status'))} | {clean(repo.get('pushed_at'))[:10]} | Free scholarly translation use. |"
+        )
+    return "\n".join(rows)
+
+
+def build_operational_section(projects: list[dict[str, Any]]) -> str:
+    operational = [repo for repo in projects if repo.get("operational")]
+    if not operational:
+        return "No operational repositories were detected in the latest visible scan."
+    rows = ["| Repository | Expected Visibility | Current Visibility | Status |", "|---|---:|---:|---:|"]
+    for repo in operational:
+        rows.append(
+            f"| {clean(repo.get('name'))} | private | {clean(repo.get('visibility'))} | {clean(repo.get('status'))} |"
+        )
     return "\n".join(rows)
 
 
@@ -80,7 +124,7 @@ def render_readme(status: dict[str, Any]) -> str:
     repo_count = clean(status.get("repo_count"))
     return f"""# Skeffington Repository Status
 
-This repository is public by design. It provides a sanitized weekly status surface for project coordination, storyboard tracking, and repository governance.
+This repository is public by design. It provides a sanitized weekly status surface for project coordination, storyboard tracking, public scholarly translation objects, and repository governance.
 
 ## Status
 
@@ -92,6 +136,18 @@ Last automated update: {scanned_at}
 | Project status | Updated from `data/project_status.json` |
 | Storyboard | Maintained in `docs/storyboard.md` |
 | Security review | {len(flags)} public operational flags |
+
+## Repository Categories
+
+{build_category_table(projects)}
+
+## Operational Repositories
+
+{build_operational_section(projects)}
+
+## Public Scholarly Translation Repositories
+
+{build_scholarly_section(projects)}
 
 ## Active Workstreams
 
@@ -107,7 +163,7 @@ Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). W
 
 ## Repository Governance
 
-Operational repositories should remain private. Public repositories should contain only sanitized documentation, demonstrations, research material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in this README and in the weekly snapshot.
+Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in this README and in the weekly snapshot.
 
 ## Automation
 
@@ -121,15 +177,22 @@ def write_weekly(status: dict[str, Any]) -> None:
     WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
     date_name = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     path = WEEKLY_DIR / f"{date_name}.md"
+    projects = status.get("projects", [])
     flags = status.get("security_flags", [])
     content = (
         f"# Weekly Repository Snapshot - {date_name}\n\n"
         f"Scanned at: {clean(status.get('scanned_at'))}\n\n"
         f"Visible repositories scanned: {clean(status.get('repo_count'))}\n\n"
+        "## Repository Categories\n\n"
+        f"{build_category_table(projects)}\n\n"
+        "## Operational Repositories\n\n"
+        f"{build_operational_section(projects)}\n\n"
+        "## Public Scholarly Translation Repositories\n\n"
+        f"{build_scholarly_section(projects)}\n\n"
         "## Security Flags\n\n"
         f"{build_security_section(flags)}\n\n"
         "## Project Table\n\n"
-        f"{build_project_table(status.get('projects', []), limit=100)}\n"
+        f"{build_project_table(projects, limit=100)}\n"
     )
     path.write_text(content, encoding="utf-8")
 
