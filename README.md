@@ -1,6 +1,6 @@
 # Skeffington Repository Status
 
-This repository is public by design. It provides a sanitized weekly status surface for project coordination, storyboard tracking, and repository governance.
+This repository is public by design. It provides a sanitized weekly status surface for project coordination, storyboard tracking, public scholarly translation objects, and repository governance.
 
 ## Status
 
@@ -13,13 +13,42 @@ Last automated update: pending first weekly scan.
 | Storyboard | Initialized |
 | Security review | Pending |
 
+## Repository Categories
+
+The weekly scanner renders category counts after the first scan.
+
+| Category | Current Rule |
+|---|---|
+| Operational | Private only. |
+| Public scholarly | Public allowed when materials are intentionally shared for free scholarly use. |
+| Public | Sanitized documentation, research, portfolio, demonstrations, or coordination notes only. |
+| Private support | Non-operational private workspaces and drafts. |
+
+## Operational Repositories
+
+| Repository | Expected Visibility | Note |
+|---|---:|---|
+| Eagle-Eye | Private | Core operational repository. |
+| trans | Private | Core operational repository. |
+
+## Public Scholarly Translation Repositories
+
+| Repository | Expected Visibility | Public Purpose |
+|---|---:|---|
+| trans-latin | Public | Translation objects retained for free scholarly use. |
+| Trans-heb | Public | Translation objects retained for free scholarly use. |
+
 ## Active Workstreams
 
 The weekly scanner updates this section from `data/project_status.json`.
 
-| Project | Visibility | Status | Last Activity | Notes |
-|---|---:|---:|---:|---|
-| README | Public | Active | Initial setup | Public weekly status surface. |
+| Project | Category | Visibility | Status | Last Activity | Notes |
+|---|---:|---:|---:|---:|---|
+| README | Public | Public | Active | Initial setup | Public weekly status surface. |
+
+## Security Review
+
+No public operational repository flags were detected in the last manual pass. The scheduled scan will update this after execution.
 
 ## Storyboard
 
@@ -27,7 +56,7 @@ Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). W
 
 ## Repository Governance
 
-Operational repositories should remain private. Public repositories should contain only sanitized documentation, demonstrations, research material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in the security section of the generated report.
+Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in this README and in the weekly snapshot.
 
 ## Automation
 
