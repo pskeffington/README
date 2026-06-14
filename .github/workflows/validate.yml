@@ -1,0 +1,31 @@
+name: Validate Status Tooling
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate repository policy
+        run: python scripts/validate_policy.py
+
+      - name: Validate renderer imports
+        run: python -m py_compile scripts/scan_repos.py scripts/render_status.py scripts/validate_policy.py
