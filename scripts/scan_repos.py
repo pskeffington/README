@@ -19,6 +19,10 @@ WEEKLY_DIR = ROOT / "docs" / "weekly"
 LATIN_SAFE_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
 
+def parse_csv_env(name: str, default: str) -> set[str]:
+    return {item.strip() for item in os.environ.get(name, default).split(",") if item.strip()}
+
+
 def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
@@ -83,11 +87,23 @@ def classify_status(repo: dict[str, Any]) -> str:
     return "Quiet"
 
 
-def is_operational(repo: dict[str, Any], configured: set[str]) -> bool:
+def name_in_set(repo: dict[str, Any], names: set[str]) -> bool:
     name = str(repo.get("name", ""))
+    names_lower = {item.lower() for item in names}
+    return name.lower() in names_lower
+
+
+def is_public_scholarly(repo: dict[str, Any], configured: set[str]) -> bool:
     topics = {str(topic).lower() for topic in repo.get("topics", [])}
-    configured_lower = {item.lower() for item in configured}
-    if name.lower() in configured_lower:
+    scholarly_topics = {"scholarly", "translation", "public-domain", "open-scholarship", "research"}
+    return name_in_set(repo, configured) or bool(topics & scholarly_topics)
+
+
+def is_operational(repo: dict[str, Any], configured: set[str], public_scholarly: bool) -> bool:
+    if public_scholarly:
+        return False
+    topics = {str(topic).lower() for topic in repo.get("topics", [])}
+    if name_in_set(repo, configured):
         return True
     operational_topics = {"operational", "ops", "production", "core", "main-processing"}
     return bool(topics & operational_topics)
@@ -106,8 +122,14 @@ def flag_repo(repo: dict[str, Any], operational: bool, public_status_repo: str) 
     return ""
 
 
-def sanitize_repo(repo: dict[str, Any], configured_operational: set[str], public_status_repo: str) -> dict[str, Any]:
-    operational = is_operational(repo, configured_operational)
+def sanitize_repo(
+    repo: dict[str, Any],
+    configured_operational: set[str],
+    configured_public_scholarly: set[str],
+    public_status_repo: str,
+) -> dict[str, Any]:
+    public_scholarly = is_public_scholarly(repo, configured_public_scholarly)
+    operational = is_operational(repo, configured_operational, public_scholarly)
     visibility = str(repo.get("visibility") or ("private" if repo.get("private") else "public"))
     return {
         "name": repo.get("name"),
@@ -120,6 +142,7 @@ def sanitize_repo(repo: dict[str, Any], configured_operational: set[str], public
         "updated_at": repo.get("updated_at"),
         "archived": bool(repo.get("archived")),
         "fork": bool(repo.get("fork")),
+        "public_scholarly": public_scholarly,
         "operational": operational,
         "security_flag": flag_repo(repo, operational, public_status_repo),
     }
@@ -129,18 +152,18 @@ def main() -> int:
     owner = os.environ.get("REPO_OWNER", "pskeffington")
     token = os.environ.get("REPO_SCAN_TOKEN") or os.environ.get("GITHUB_TOKEN")
     public_status_repo = os.environ.get("PUBLIC_STATUS_REPO", "README")
-    configured_operational = {
-        item.strip()
-        for item in os.environ.get("OPERATIONAL_REPOS", "Eagle-Eye,trans,trans-latin").split(",")
-        if item.strip()
-    }
+    configured_operational = parse_csv_env("OPERATIONAL_REPOS", "Eagle-Eye,trans")
+    configured_public_scholarly = parse_csv_env("PUBLIC_SCHOLARLY_REPOS", "trans-latin,Trans-heb")
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
 
     repos = collect_repos(owner, token)
     scanned_at = now_iso()
-    sanitized = [sanitize_repo(repo, configured_operational, public_status_repo) for repo in repos]
+    sanitized = [
+        sanitize_repo(repo, configured_operational, configured_public_scholarly, public_status_repo)
+        for repo in repos
+    ]
     inventory = {
         "owner": owner,
         "scanned_at": scanned_at,
