@@ -4,59 +4,74 @@ This repository is public by design. It provides a sanitized weekly status surfa
 
 ## Status
 
-Last automated update: pending first weekly scan.
+Last manual update: 2026-08-05
 
 | Area | Current State |
 |---|---|
-| Repository scan | Pending |
-| Project status | Pending |
-| Storyboard | Initialized |
-| Security review | Pending |
+| Repository scan | 50 accessible repositories reviewed |
+| Project status | Baseline recorded in `data/project_status.json` |
+| Storyboard | Maintained in `docs/storyboard.md` |
+| Security review | No accessible operational repositories found public |
 
 ## Repository Categories
 
-The weekly scanner renders category counts after the first scan.
+| Category | Count |
+|---|---:|
+| Operational | 4 |
+| Public scholarly | 1 |
+| Public | 1 |
+| Private support | 1 |
 
-| Category | Current Rule |
-|---|---|
-| Operational | Private only. |
-| Public scholarly | Public allowed when materials are intentionally shared for free scholarly use. |
-| Public | Sanitized documentation, research, portfolio, demonstrations, or coordination notes only. |
-| Private support | Non-operational private workspaces and drafts. |
+These counts cover the seven repositories included in the sanitized active-workstream table. The connected account currently exposes 50 repositories; inactive and unrelated repositories are omitted pending fuller classification.
 
 ## Operational Repositories
 
-| Repository | Expected Visibility | Note |
-|---|---:|---|
-| Eagle-Eye | Private | Core operational repository. |
-| trans | Private | Core operational repository. |
+| Repository | Expected Visibility | Current Visibility | Status |
+|---|---:|---:|---:|
+| ctl-injest | private | private | Active prototype |
+| Eagle-Eye | private | private | Active research |
+| trans | private | private | Active research |
+| Control | private | private | Active governance |
 
 ## Public Scholarly Translation Repositories
 
-| Repository | Expected Visibility | Public Purpose |
-|---|---:|---|
-| trans-latin | Public | Translation objects retained for free scholarly use. |
-| Trans-heb | Public | Translation objects retained for free scholarly use. |
+| Repository | Status | Last Activity | Public Purpose |
+|---|---:|---:|---|
+| trans-latin | Maintained | 2026-08-05 | Translation objects retained for free scholarly use. |
+
+`Trans-heb` is currently private and is not represented as an active public scholarly repository. Its eligibility should be reviewed before any visibility change.
 
 ## Active Workstreams
 
-The weekly scanner updates this section from `data/project_status.json`.
-
 | Project | Category | Visibility | Status | Last Activity | Notes |
 |---|---:|---:|---:|---:|---|
-| README | Public | Public | Active | Initial setup | Public weekly status surface. |
+| ctl-injest | Operational | private | Active prototype | 2026-08-05 | Governed intake and release-review workspace; a secondary audio-ingestion lane was scaffolded with pointer-only contracts, bounded transcript events, fail-closed validation, and audit-safe receipts. |
+| Eagle-Eye | Operational | private | Active research | 2026-08-05 | Private mixed-reality research workspace with bounded integration points for validated display events. |
+| trans | Operational | private | Active research | 2026-08-05 | Private translation and document-processing workspace connected through governed intake and downstream release review. |
+| Control | Operational | private | Active governance | 2026-08-05 | Shared validation, packet-contract, and routing authority for bounded cross-repository workflows. |
+| README | Public | public | Active | 2026-08-05 | Sanitized weekly repository status, governance, and public scholarly coordination surface. |
+| trans-latin | Public scholarly | public | Maintained | 2026-08-05 | Public translation objects retained for free scholarly use. |
+| Trans-heb | Private support | private | Review needed | 2026-08-05 | Translation workspace currently private; public scholarly eligibility should be confirmed before any visibility change. |
+
+## Weekly Progress
+
+- Established the first manual weekly repository-status baseline.
+- Confirmed that the principal governed intake, display-research, translation, and routing repositories remain private.
+- Scaffolded a secondary audio-ingestion lane in `ctl-injest` through pointer-only intake contracts and bounded partial/final transcript events.
+- Kept raw-audio storage, model execution, speaker identification, and headset rendering outside the governance repository.
+- Opened draft pull request 37 in `ctl-injest` for review.
 
 ## Security Review
 
-No public operational repository flags were detected in the last manual pass. The scheduled scan will update this after execution.
+No accessible operational repositories were found to be public in this manual baseline review. The public status surface excludes private implementation details, payloads, credentials, raw audio, governed source text, and restricted records.
 
 ## Storyboard
 
-Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). Weekly snapshots are written under [`docs/weekly/`](docs/weekly/).
+Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). The current weekly snapshot is [`docs/weekly/2026-08-05.md`](docs/weekly/2026-08-05.md).
 
 ## Repository Governance
 
-Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in this README and in the weekly snapshot.
+Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner should flag it in this README and in the weekly snapshot.
 
 ## Automation
 
