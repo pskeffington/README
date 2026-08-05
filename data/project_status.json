@@ -1,0 +1,71 @@
+{
+  "owner": "pskeffington",
+  "scanned_at": "2026-08-05T18:00:00Z",
+  "repo_count": 50,
+  "security_flags": [],
+  "projects": [
+    {
+      "name": "ctl-injest",
+      "visibility": "private",
+      "status": "Active prototype",
+      "pushed_at": "2026-08-05",
+      "description": "Governed intake and release-review workspace; secondary audio-ingestion contracts were scaffolded for transport-neutral transcription events.",
+      "operational": true,
+      "public_scholarly": false
+    },
+    {
+      "name": "Eagle-Eye",
+      "visibility": "private",
+      "status": "Active research",
+      "pushed_at": "2026-08-05",
+      "description": "Private mixed-reality research workspace with bounded integration points for validated display events.",
+      "operational": true,
+      "public_scholarly": false
+    },
+    {
+      "name": "trans",
+      "visibility": "private",
+      "status": "Active research",
+      "pushed_at": "2026-08-05",
+      "description": "Private translation and document-processing workspace connected through governed intake and downstream release review.",
+      "operational": true,
+      "public_scholarly": false
+    },
+    {
+      "name": "Control",
+      "visibility": "private",
+      "status": "Active governance",
+      "pushed_at": "2026-08-05",
+      "description": "Shared validation, packet-contract, and routing authority for bounded cross-repository workflows.",
+      "operational": true,
+      "public_scholarly": false
+    },
+    {
+      "name": "README",
+      "visibility": "public",
+      "status": "Active",
+      "pushed_at": "2026-08-05",
+      "description": "Sanitized weekly repository status, governance, and public scholarly coordination surface.",
+      "operational": false,
+      "public_scholarly": false
+    },
+    {
+      "name": "trans-latin",
+      "visibility": "public",
+      "status": "Maintained",
+      "pushed_at": "2026-08-05",
+      "description": "Public translation objects retained for free scholarly use.",
+      "operational": false,
+      "public_scholarly": true
+    },
+    {
+      "name": "Trans-heb",
+      "visibility": "private",
+      "status": "Review needed",
+      "pushed_at": "2026-08-05",
+      "description": "Translation workspace currently private; public scholarly eligibility should be confirmed before any visibility change.",
+      "operational": false,
+      "public_scholarly": false
+    }
+  ]
+}
