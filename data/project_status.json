@@ -2,7 +2,10 @@
   "owner": "pskeffington",
   "updated_at": "2026-08-12",
   "public_status_scope": "sanitized current research status",
-  "primary_program": "TRANS document-intelligence pipeline",
+  "key_programs": [
+    "CART-TRACE",
+    "TRANS document-intelligence pipeline"
+  ],
   "pipeline": [
     "ctl-injest",
     "Eagle-Eye",
@@ -19,6 +22,15 @@
     "raw_payload_retention_in_bounded_receipts": false
   },
   "projects": [
+    {
+      "name": "CART-TRACE",
+      "visibility": "public",
+      "status": "Active research",
+      "role": "synthetic-first CAR T-cell longitudinal care-trajectory and hospital-utilization research framework",
+      "research_context": "Dartmouth CAR T-cell program research",
+      "clinical_decision_support": false,
+      "public_phi_allowed": false
+    },
     {
       "name": "ctl-injest",
       "visibility": "private",
@@ -66,9 +78,11 @@
     }
   ],
   "current_validation_gates": [
-    "seal exact five-repository candidate",
-    "run Python 3.12 installed-wheel proof",
-    "capture remote CI for exact candidate",
+    "CART-TRACE episode schema and care-state validation",
+    "CART-TRACE synthetic trajectory reconstruction and utilization metrics",
+    "seal exact five-repository TRANS candidate",
+    "run Python 3.12 TRANS installed-wheel proof",
+    "capture remote CI for exact TRANS candidate",
     "complete independent handwriting benchmark",
     "complete hosted staging controls where deployment is evaluated",
     "complete evidence-room and reproducibility package"
