@@ -2,11 +2,16 @@
   "owner": "pskeffington",
   "public_status_repo": "README",
   "operational_repos": [
+    "ctl-injest",
     "Eagle-Eye",
-    "trans"
+    "trans",
+    "trans-release",
+    "trans-downstream"
   ],
   "public_scholarly_repos": [
-    "trans-latin",
+    "trans-latin"
+  ],
+  "private_review_repos": [
     "Trans-heb"
   ],
   "public_scholarly_purpose": "Translation objects retained for free scholarly use.",
@@ -14,6 +19,7 @@
     "operational_visibility": "private",
     "status_repo_visibility": "public",
     "public_scholarly_visibility": "public",
+    "private_review_visibility": "private",
     "public_materials": "Sanitized documentation, research, portfolio materials, public scholarship, demonstrations, coordination notes, and intentionally public translation objects only."
   }
 }
