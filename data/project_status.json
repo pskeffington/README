@@ -1,71 +1,76 @@
 {
   "owner": "pskeffington",
-  "scanned_at": "2026-08-05T18:00:00Z",
-  "repo_count": 50,
-  "security_flags": [],
+  "updated_at": "2026-08-12",
+  "public_status_scope": "sanitized current research status",
+  "primary_program": "TRANS document-intelligence pipeline",
+  "pipeline": [
+    "ctl-injest",
+    "Eagle-Eye",
+    "trans",
+    "trans-release",
+    "trans-downstream"
+  ],
+  "current_state": {
+    "python_3_11_installed_proof": true,
+    "python_3_12_proof_pending": true,
+    "remote_ci_for_sealed_candidate_pending": true,
+    "handwriting_human_review_required": true,
+    "external_delivery_enabled": false,
+    "raw_payload_retention_in_bounded_receipts": false
+  },
   "projects": [
     {
       "name": "ctl-injest",
       "visibility": "private",
-      "status": "Active prototype",
-      "pushed_at": "2026-08-05",
-      "description": "Governed intake and release-review workspace; secondary audio-ingestion contracts were scaffolded for transport-neutral transcription events.",
-      "operational": true,
-      "public_scholarly": false
+      "status": "Active research",
+      "role": "source admission, classification, governed run planning, orchestration receipts"
     },
     {
       "name": "Eagle-Eye",
       "visibility": "private",
       "status": "Active research",
-      "pushed_at": "2026-08-05",
-      "description": "Private mixed-reality research workspace with bounded integration points for validated display events.",
-      "operational": true,
-      "public_scholarly": false
+      "role": "source facts, page/frame identity, bounded visual observations"
     },
     {
       "name": "trans",
       "visibility": "private",
       "status": "Active research",
-      "pushed_at": "2026-08-05",
-      "description": "Private translation and document-processing workspace connected through governed intake and downstream release review.",
-      "operational": true,
-      "public_scholarly": false
+      "role": "reconciliation, transcript/document packets, handwriting processing, review projection",
+      "active_branch": "codex/operator-review-bridge",
+      "validated_checkpoint": "c36ef8b75d4070f3f6df8384863b56e8312e33d5",
+      "python_3_11_tests_passed": 367
     },
     {
-      "name": "Control",
+      "name": "trans-release",
       "visibility": "private",
-      "status": "Active governance",
-      "pushed_at": "2026-08-05",
-      "description": "Shared validation, packet-contract, and routing authority for bounded cross-repository workflows.",
-      "operational": true,
-      "public_scholarly": false
+      "status": "Active research",
+      "role": "QA, independent approval correlation, release eligibility"
+    },
+    {
+      "name": "trans-downstream",
+      "visibility": "private",
+      "status": "Active research",
+      "role": "bounded projection, destination planning, dry-run delivery receipts"
     },
     {
       "name": "README",
       "visibility": "public",
       "status": "Active",
-      "pushed_at": "2026-08-05",
-      "description": "Sanitized weekly repository status, governance, and public scholarly coordination surface.",
-      "operational": false,
-      "public_scholarly": false
+      "role": "sanitized portfolio and research-status surface"
     },
     {
       "name": "trans-latin",
       "visibility": "public",
       "status": "Maintained",
-      "pushed_at": "2026-08-05",
-      "description": "Public translation objects retained for free scholarly use.",
-      "operational": false,
-      "public_scholarly": true
-    },
-    {
-      "name": "Trans-heb",
-      "visibility": "private",
-      "status": "Review needed",
-      "pushed_at": "2026-08-05",
-      "description": "Translation workspace currently private; public scholarly eligibility should be confirmed before any visibility change.",
-      "operational": false,
-      "public_scholarly": false
+      "role": "public scholarly translation objects"
     }
+  ],
+  "current_validation_gates": [
+    "seal exact five-repository candidate",
+    "run Python 3.12 installed-wheel proof",
+    "capture remote CI for exact candidate",
+    "complete independent handwriting benchmark",
+    "complete hosted staging controls where deployment is evaluated",
+    "complete evidence-room and reproducibility package"
   ]
 }
