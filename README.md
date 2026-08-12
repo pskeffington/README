@@ -6,7 +6,33 @@ This repository is the public, sanitized status surface for active research, sch
 
 Last manual update: 2026-08-12
 
-The primary active research program is the five-repository TRANS document-intelligence pipeline:
+Two key research programs are currently active:
+
+1. **CART-TRACE** — a public research framework supporting Dartmouth CAR T-cell program research on longitudinal hospital care trajectories, utilization, care transitions, and reproducible episode reconstruction around CAR T-cell therapy.
+2. **TRANS** — a five-repository, human-reviewed document-intelligence research pipeline for bounded source admission, visual evidence, document processing, release validation, and downstream projection.
+
+## Key Project — CART-TRACE
+
+Repository: [`pskeffington/CART-TRACE`](https://github.com/pskeffington/CART-TRACE)
+
+**CART-TRACE** reconstructs longitudinal hospital care trajectories around CAR T-cell therapy using treatment-relative episodes rather than isolated encounters.
+
+Current research focus:
+
+- treatment-relative time with `day 0 = infusion`;
+- inpatient and outpatient encounters;
+- care location and level-of-care transitions;
+- high-acuity escalation and de-escalation;
+- length of stay and discharge timing;
+- 7-day and 30-day acute-care reuse;
+- provenance, missingness, and reproducible transformation rules;
+- descriptive care phenotypes without turning those phenotypes into clinical recommendations.
+
+The current thesis-level question is how longitudinal clinical data can characterize hospital resource utilization and transitions in level of care following CAR T-cell therapy.
+
+CART-TRACE is synthetic-first in public development and is **not** a clinical decision-support system. It does not diagnose toxicity, issue alerts, recommend transfer/discharge/treatment, or represent research associations as bedside guidance. Any future institutional-data work must occur under appropriate governance and approvals.
+
+## TRANS Research Program
 
 ```text
 ctl-injest
@@ -16,7 +42,7 @@ ctl-injest
   -> trans-downstream
 ```
 
-Current program state:
+Current TRANS program state:
 
 - five repository authority boundaries are documented and cross-aligned;
 - installed-wheel Python 3.11 ecosystem proofs are available;
@@ -28,7 +54,7 @@ Current program state:
 - external delivery remains disabled unless separately authorized and evidenced;
 - Python 3.12, exact-candidate remote CI, independent handwriting benchmarking, and hosted staging remain current validation gates.
 
-## Active TRANS Research Repositories
+### Active TRANS repositories
 
 | Repository | Visibility | Current Role | Status |
 |---|---|---|---|
@@ -42,24 +68,31 @@ A later layer may narrow eligibility but must not silently promote an earlier bl
 
 ## Current Research Direction
 
-The present scholarly focus is **auditable, provenance-preserving, human-reviewed document processing** rather than generalized OCR performance.
+Across the portfolio, current work emphasizes auditable evidence, provenance, reproducibility, explicit uncertainty, and human review.
 
-Current work includes:
+For CART-TRACE, that means making the hospital care sequence transparent, reproducible, and measurable before attempting prediction or clinical implementation.
 
-- handwriting and printed-text processing;
-- page- and region-level provenance;
-- bounded glyph and text candidates;
-- explicit uncertainty and review states;
-- reproducible source-to-output traceability;
-- independent release approval correlation;
-- dry-run downstream projection;
-- exact software/version provenance for research evidence.
+For TRANS, that means auditable, provenance-preserving, human-reviewed document processing rather than generalized OCR performance.
 
-The program does not claim universal handwriting recognition, writer identity, authorship, authenticity, legal certification, clinical authority, or autonomous institutional decision-making.
+Neither program is presented as an autonomous clinical, legal, policy, or institutional decision system.
 
 ## Current Validation Work
 
-The next research candidate must reproduce bounded behavior across:
+### CART-TRACE
+
+Current work is directed toward:
+
+1. episode schema and treatment-relative timeline;
+2. care-state vocabulary;
+3. synthetic episode generation;
+4. transition reconstruction;
+5. utilization metrics;
+6. provenance and missingness handling;
+7. reproducible validation before any institutional-data analysis.
+
+### TRANS
+
+The next TRANS candidate must reproduce bounded behavior across:
 
 1. Python 3.11 installed-wheel execution;
 2. Python 3.12 installed-wheel execution;
@@ -69,15 +102,19 @@ The next research candidate must reproduce bounded behavior across:
 6. independent handwriting review and error analysis;
 7. deployment-owned hosted staging controls where deployment behavior is evaluated.
 
-## Public Scholarly Repositories
+## Public Research and Scholarly Repositories
 
-Public scholarly repositories may remain public when they contain intentionally public, permissioned, or otherwise appropriate scholarly material and do not expose private operational evidence.
+| Repository | Visibility | Purpose |
+|---|---|---|
+| `CART-TRACE` | public | CAR T-cell longitudinal care-trajectory and hospital-utilization research framework |
+| `trans-latin` | public | intentionally public scholarly translation objects |
+| `README` | public | sanitized portfolio and research-status surface |
 
-`trans-latin` remains a public scholarly translation repository. Other translation repositories should be evaluated independently before any visibility change.
+Other repositories should be evaluated independently before any visibility change.
 
 ## Security and Public-Interest Boundary
 
-This public repository does not reproduce private implementation details, credentials, raw source media, unrestricted OCR, governed source text, private storage locations, or restricted records.
+This public repository does not reproduce private implementation details, credentials, raw source media, unrestricted OCR, governed source text, private storage locations, PHI, or restricted records.
 
 Public-facing documentation may describe:
 
@@ -89,7 +126,7 @@ Public-facing documentation may describe:
 - scholarly publication direction;
 - sanitized aggregate evidence.
 
-Private operational or research repositories should remain private unless a separate review determines that a repository is intentionally suitable for public release.
+Public CART-TRACE development must remain synthetic-first unless a separately governed institutional workflow is established. Public TRANS documentation must remain sanitized and bounded.
 
 ## Storyboard and Weekly Status
 
@@ -103,17 +140,7 @@ Older weekly snapshots remain historical records and are not the source of curre
 
 Current-facing README material should describe only present project state. Historical baselines, superseded architecture, older milestones, and prior weekly activity belong in dated documentation rather than on headline repository pages.
 
-Cross-repository research documentation should preserve the same authority model:
-
-```text
-admission
-  -> visual/source evidence
-  -> bounded document processing and review
-  -> independent release validation
-  -> bounded downstream projection
-```
-
-No downstream repository should create authority that belongs to an upstream or independent review layer.
+Research repositories should be classified according to their actual role and intended visibility. Public research repositories must contain only intentionally public, permissioned, synthetic, redacted, or otherwise appropriate material.
 
 ## Automation
 
