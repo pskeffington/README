@@ -1,80 +1,122 @@
 # Skeffington Repository Status
 
-This repository is public by design. It provides a sanitized weekly status surface for project coordination, storyboard tracking, public scholarly translation objects, and repository governance.
+This repository is the public, sanitized status surface for active research, scholarly coordination, repository governance, and portfolio-level documentation.
 
-## Status
+## Current Status
 
-Last manual update: 2026-08-05
+Last manual update: 2026-08-12
 
-| Area | Current State |
-|---|---|
-| Repository scan | 50 accessible repositories reviewed |
-| Project status | Baseline recorded in `data/project_status.json` |
-| Storyboard | Maintained in `docs/storyboard.md` |
-| Security review | No accessible operational repositories found public |
+The primary active research program is the five-repository TRANS document-intelligence pipeline:
 
-## Repository Categories
+```text
+ctl-injest
+  -> Eagle-Eye
+  -> trans
+  -> trans-release
+  -> trans-downstream
+```
 
-| Category | Count |
-|---|---:|
-| Operational | 4 |
-| Public scholarly | 1 |
-| Public | 1 |
-| Private support | 1 |
+Current program state:
 
-These counts cover the seven repositories included in the sanitized active-workstream table. The connected account currently exposes 50 repositories; inactive and unrelated repositories are omitted pending fuller classification.
+- five repository authority boundaries are documented and cross-aligned;
+- installed-wheel Python 3.11 ecosystem proofs are available;
+- exact adjacent artifact correlation is preserved across the pipeline;
+- the active `trans` research candidate remains human-review gated;
+- release approval is independently correlated rather than inferred from candidacy or interface state;
+- downstream projection remains dry-run by default;
+- bounded evidence receipts do not retain unrestricted source payloads;
+- external delivery remains disabled unless separately authorized and evidenced;
+- Python 3.12, exact-candidate remote CI, independent handwriting benchmarking, and hosted staging remain current validation gates.
 
-## Operational Repositories
+## Active TRANS Research Repositories
 
-| Repository | Expected Visibility | Current Visibility | Status |
-|---|---:|---:|---:|
-| ctl-injest | private | private | Active prototype |
-| Eagle-Eye | private | private | Active research |
-| trans | private | private | Active research |
-| Control | private | private | Active governance |
+| Repository | Visibility | Current Role | Status |
+|---|---|---|---|
+| `ctl-injest` | private | source admission, classification, governed run planning, orchestration receipts | Active research |
+| `Eagle-Eye` | private | source facts, page/frame identity, bounded visual observations | Active research |
+| `trans` | private | reconciliation, transcript/document packets, handwriting processing, review projection | Active research |
+| `trans-release` | private | QA, independent approval correlation, release eligibility | Active research |
+| `trans-downstream` | private | bounded projection, destination planning, dry-run delivery receipts | Active research |
 
-## Public Scholarly Translation Repositories
+A later layer may narrow eligibility but must not silently promote an earlier blocked, review-required, blank, negative, or held state.
 
-| Repository | Status | Last Activity | Public Purpose |
-|---|---:|---:|---|
-| trans-latin | Maintained | 2026-08-05 | Translation objects retained for free scholarly use. |
+## Current Research Direction
 
-`Trans-heb` is currently private and is not represented as an active public scholarly repository. Its eligibility should be reviewed before any visibility change.
+The present scholarly focus is **auditable, provenance-preserving, human-reviewed document processing** rather than generalized OCR performance.
 
-## Active Workstreams
+Current work includes:
 
-| Project | Category | Visibility | Status | Last Activity | Notes |
-|---|---:|---:|---:|---:|---|
-| ctl-injest | Operational | private | Active prototype | 2026-08-05 | Governed intake and release-review workspace; a secondary audio-ingestion lane was scaffolded with pointer-only contracts, bounded transcript events, fail-closed validation, and audit-safe receipts. |
-| Eagle-Eye | Operational | private | Active research | 2026-08-05 | Private mixed-reality research workspace with bounded integration points for validated display events. |
-| trans | Operational | private | Active research | 2026-08-05 | Private translation and document-processing workspace connected through governed intake and downstream release review. |
-| Control | Operational | private | Active governance | 2026-08-05 | Shared validation, packet-contract, and routing authority for bounded cross-repository workflows. |
-| README | Public | public | Active | 2026-08-05 | Sanitized weekly repository status, governance, and public scholarly coordination surface. |
-| trans-latin | Public scholarly | public | Maintained | 2026-08-05 | Public translation objects retained for free scholarly use. |
-| Trans-heb | Private support | private | Review needed | 2026-08-05 | Translation workspace currently private; public scholarly eligibility should be confirmed before any visibility change. |
+- handwriting and printed-text processing;
+- page- and region-level provenance;
+- bounded glyph and text candidates;
+- explicit uncertainty and review states;
+- reproducible source-to-output traceability;
+- independent release approval correlation;
+- dry-run downstream projection;
+- exact software/version provenance for research evidence.
 
-## Weekly Progress
+The program does not claim universal handwriting recognition, writer identity, authorship, authenticity, legal certification, clinical authority, or autonomous institutional decision-making.
 
-- Established the first manual weekly repository-status baseline.
-- Confirmed that the principal governed intake, display-research, translation, and routing repositories remain private.
-- Scaffolded a secondary audio-ingestion lane in `ctl-injest` through pointer-only intake contracts and bounded partial/final transcript events.
-- Kept raw-audio storage, model execution, speaker identification, and headset rendering outside the governance repository.
-- Opened draft pull request 37 in `ctl-injest` for review.
+## Current Validation Work
 
-## Security Review
+The next research candidate must reproduce bounded behavior across:
 
-No accessible operational repositories were found to be public in this manual baseline review. The public status surface excludes private implementation details, payloads, credentials, raw audio, governed source text, and restricted records.
+1. Python 3.11 installed-wheel execution;
+2. Python 3.12 installed-wheel execution;
+3. remote CI for the exact sealed five-repository candidate;
+4. adjacent artifact-join checks;
+5. blocked, malformed, mismatched, changed-hash, missing-approval, and conflicting-retry cases;
+6. independent handwriting review and error analysis;
+7. deployment-owned hosted staging controls where deployment behavior is evaluated.
 
-## Storyboard
+## Public Scholarly Repositories
 
-Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). The current weekly snapshot is [`docs/weekly/2026-08-05.md`](docs/weekly/2026-08-05.md).
+Public scholarly repositories may remain public when they contain intentionally public, permissioned, or otherwise appropriate scholarly material and do not expose private operational evidence.
+
+`trans-latin` remains a public scholarly translation repository. Other translation repositories should be evaluated independently before any visibility change.
+
+## Security and Public-Interest Boundary
+
+This public repository does not reproduce private implementation details, credentials, raw source media, unrestricted OCR, governed source text, private storage locations, or restricted records.
+
+Public-facing documentation may describe:
+
+- research goals;
+- architecture and authority boundaries;
+- validation status;
+- reproducibility methods;
+- limitations;
+- scholarly publication direction;
+- sanitized aggregate evidence.
+
+Private operational or research repositories should remain private unless a separate review determines that a repository is intentionally suitable for public release.
+
+## Storyboard and Weekly Status
+
+The current project narrative is maintained in [`docs/storyboard.md`](docs/storyboard.md).
+
+Current weekly snapshot: [`docs/weekly/2026-08-12.md`](docs/weekly/2026-08-12.md).
+
+Older weekly snapshots remain historical records and are not the source of current project status.
 
 ## Repository Governance
 
-Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner should flag it in this README and in the weekly snapshot.
+Current-facing README material should describe only present project state. Historical baselines, superseded architecture, older milestones, and prior weekly activity belong in dated documentation rather than on headline repository pages.
+
+Cross-repository research documentation should preserve the same authority model:
+
+```text
+admission
+  -> visual/source evidence
+  -> bounded document processing and review
+  -> independent release validation
+  -> bounded downstream projection
+```
+
+No downstream repository should create authority that belongs to an upstream or independent review layer.
 
 ## Automation
 
 The weekly scan is defined in [`.github/workflows/weekly-repo-scan.yml`](.github/workflows/weekly-repo-scan.yml).
 
-To scan private repositories, add a repository secret named `REPO_SCAN_TOKEN` with permission to read the target repositories and write contents to this repository. Without that secret, the workflow can only report on repositories visible to the default token.
+Automated scans should be treated as repository-observation aids rather than substitutes for manual research-status review. Public outputs must remain sanitized even when private repositories are included in the scan source.
