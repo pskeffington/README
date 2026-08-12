@@ -1,47 +1,79 @@
 # Storyboard
 
-This file tracks the public-facing project narrative, milestones, and weekly direction without reproducing private implementation detail.
+This file tracks the current public-facing research narrative without reproducing private implementation detail.
 
 ## Current Frame
 
-The portfolio is moving from repository-by-repository prototypes toward governed, interoperable research components.
+The portfolio is centered on a five-repository, human-reviewed document-intelligence research pipeline:
 
-- `ctl-injest` remains the private intake and release-review boundary.
-- `Control` remains the shared validation and routing authority.
-- `Eagle-Eye` remains a private mixed-reality research surface.
-- `trans` remains a private translation and document-processing workspace.
-- The public `README` repository records only sanitized status, governance, and scholarly coordination information.
+```text
+ctl-injest
+  -> Eagle-Eye
+  -> trans
+  -> trans-release
+  -> trans-downstream
+```
 
-## Weekly Development
+Each repository has a distinct authority boundary:
 
-A secondary audio-ingestion lane has been scaffolded in `ctl-injest`. The current work is limited to transport-neutral metadata contracts, bounded transcript events, fail-closed validation, and audit-safe receipts. Capture hardware, raw-audio persistence, model execution, speaker identification, and display rendering remain outside the governance repository.
+- `ctl-injest` governs source admission, classification, and run planning;
+- `Eagle-Eye` preserves source facts, page/frame identity, and bounded visual observations;
+- `trans` performs reconciliation, bounded text/document processing, handwriting analysis, and review projection;
+- `trans-release` performs QA and independent approval correlation;
+- `trans-downstream` produces bounded projections and dry-run delivery receipts.
 
-This separation establishes a research path from validated audio pointers to bounded transcript events while preserving source boundaries and human review.
+A later layer may narrow eligibility but must not silently promote an earlier blocked, review-required, blank, negative, or held state.
 
-## Current Milestone
+## Current Research Milestone
 
-**Milestone: governed multimodal intake foundation**
+**Milestone: reproducible, review-gated five-repository candidate**
 
-The immediate objective is to demonstrate that document and audio lanes can share governance principles without sharing payload handling or implementation-specific runtime dependencies.
+The immediate objective is to seal and reproduce a candidate whose behavior is identical across supported Python environments and remote CI while preserving exact artifact correlation and human-review gates.
 
-Acceptance indicators:
+Current acceptance indicators:
 
-- distinct document and audio intake contracts;
-- no raw payloads in governance receipts;
-- explicit partial, stable-partial, and final transcript states;
-- bounded handoff eligibility rather than automatic downstream execution;
-- synthetic tests covering accepted and rejected inputs;
-- private operational repositories and sanitized public reporting.
+- exact five-repository version set;
+- installed-wheel proof on Python 3.11 and Python 3.12;
+- remote CI for the same sealed candidate;
+- exact adjacent artifact joins;
+- no raw source payloads in bounded proof receipts;
+- mandatory handwriting review for uncertain candidates;
+- explicit independent release approval correlation;
+- downstream dry-run default;
+- fail-closed behavior for malformed, mismatched, changed-hash, missing-approval, and conflicting-retry cases.
 
-## Next Frame
+## Current Scholarly Direction
 
-1. Review and validate draft pull request 37 in `ctl-injest`.
-2. Run the audio-ingestion test suite in a normal checkout or CI environment.
-3. Define a bounded transcript-event handoff contract for a simulated display adapter.
-4. Keep transcription engines, microphone clients, and headset SDKs behind replaceable external adapters.
-5. Expand repository classification before presenting account-wide public category totals.
-6. Preserve scholarly framing, reproducibility notes, limitations, and human-review requirements in each repository README.
+The research contribution is framed around **auditable, provenance-preserving, human-reviewed document processing**.
+
+The current scholarly work should evaluate:
+
+- source/page/region traceability;
+- bounded glyph and text evidence;
+- confidence and review-state calibration;
+- review workload and disagreement;
+- false-promotion and blocking behavior;
+- exact software provenance;
+- end-to-end release and downstream evidence boundaries.
+
+The program does not claim universal OCR or handwriting recognition, writer identity, authorship, authenticity, legal certification, clinical authority, or autonomous institutional decision-making.
+
+## Current Next Frame
+
+1. Seal the next five-repository candidate.
+2. Run installed-wheel proofs on Python 3.11 and Python 3.12.
+3. Capture remote CI for the exact version set.
+4. Resolve review/merge status for the active `trans` candidate.
+5. Run the complete failure-state and approval-correlation matrix.
+6. Build the independent handwriting benchmark and reviewer protocol.
+7. Consolidate the evidence-room manifest and research/deployment risk register.
+8. Complete hosted staging controls before making deployment claims.
+9. Prepare the institutional pilot acceptance and reproducibility package.
 
 ## Public Narrative Boundary
 
-Public status text may describe research goals, contracts, validation, reproducibility, and governance. It must not expose credentials, private payloads, raw audio, restricted source text, personal tracking fields, implementation-sensitive runtime details, or claims of automated authority.
+Public status text may describe research goals, architecture, contracts, validation, reproducibility, limitations, and sanitized aggregate evidence.
+
+It must not expose credentials, private payloads, unrestricted OCR or source text, private storage locations, restricted records, or unsupported claims of automated authority.
+
+Historical milestones and superseded project framing belong in dated weekly snapshots rather than this current storyboard.
