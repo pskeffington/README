@@ -8,6 +8,9 @@
     "trans-release",
     "trans-downstream"
   ],
+  "public_research_repos": [
+    "CART-TRACE"
+  ],
   "public_scholarly_repos": [
     "trans-latin"
   ],
@@ -18,8 +21,10 @@
   "rules": {
     "operational_visibility": "private",
     "status_repo_visibility": "public",
+    "public_research_visibility": "public",
     "public_scholarly_visibility": "public",
     "private_review_visibility": "private",
+    "public_research_materials": "Synthetic, permissioned, redacted, public, or otherwise appropriate research artifacts only; no PHI, production credentials, or clinical decision-support claims.",
     "public_materials": "Sanitized documentation, research, portfolio materials, public scholarship, demonstrations, coordination notes, and intentionally public translation objects only."
   }
 }
