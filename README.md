@@ -107,10 +107,9 @@ The next TRANS candidate must reproduce bounded behavior across:
 | Repository | Visibility | Purpose |
 |---|---|---|
 | `CART-TRACE` | public | CAR T-cell longitudinal care-trajectory and hospital-utilization research framework |
-| `trans-latin` | public | intentionally public scholarly translation objects |
 | `README` | public | sanitized portfolio and research-status surface |
 
-Other repositories should be evaluated independently before any visibility change.
+Other repositories should be evaluated independently before any visibility change. `trans-latin` is currently private and therefore is not listed as a public scholarly repository.
 
 ## Security and Public-Interest Boundary
 
@@ -141,6 +140,8 @@ Older weekly snapshots remain historical records and are not the source of curre
 Current-facing README material should describe only present project state. Historical baselines, superseded architecture, older milestones, and prior weekly activity belong in dated documentation rather than on headline repository pages.
 
 Research repositories should be classified according to their actual role and intended visibility. Public research repositories must contain only intentionally public, permissioned, synthetic, redacted, or otherwise appropriate material.
+
+Research scaffolds should not receive cosmetic commits solely to make them appear recent. A stable repository can remain unchanged when its scope, evidence status, limitations, and next actions are still accurate.
 
 ## Automation
 
