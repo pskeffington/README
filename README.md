@@ -4,7 +4,7 @@ This repository is the public, sanitized status surface for active research, sch
 
 ## Current Status
 
-Last manual update: 2026-08-12
+Last manual update: 2026-08-17
 
 The repository estate is now maintained as a tiered research portfolio rather than as a flat list of projects. The governing classification and evidence-promotion model are documented in [`docs/repository-architecture.md`](docs/repository-architecture.md).
 
@@ -135,7 +135,7 @@ Public CART-TRACE development must remain synthetic-first unless a separately go
 
 The current project narrative is maintained in [`docs/storyboard.md`](docs/storyboard.md).
 
-Current weekly snapshot: [`docs/weekly/2026-08-12.md`](docs/weekly/2026-08-12.md).
+Current weekly snapshot: [`docs/weekly/2026-08-17.md`](docs/weekly/2026-08-17.md).
 
 Repository classification and evidence architecture: [`docs/repository-architecture.md`](docs/repository-architecture.md).
 
