@@ -4,37 +4,26 @@ This repository is the public, sanitized status surface for active research, sch
 
 ## Current Status
 
-Last manual update: 2026-08-17
+Last manual update: 2026-08-21
 
-The repository estate is now maintained as a tiered research portfolio rather than as a flat list of projects. The governing classification and evidence-promotion model are documented in [`docs/repository-architecture.md`](docs/repository-architecture.md).
+The repository estate is maintained as a tiered research portfolio rather than as a flat list of projects. The governing classification and evidence-promotion model are documented in [`docs/repository-architecture.md`](docs/repository-architecture.md).
 
-Two programs currently anchor the research narrative:
+Two programs anchor the research narrative:
 
-1. **CART-TRACE** — the principal public translational-health data-science anchor, focused on longitudinal CAR T-cell care trajectories, utilization, provenance, missingness, and reproducible episode reconstruction.
+1. **CART-TRACE** — the principal public translational-health data-science anchor, focused on reproducible post-infusion CAR T-cell care trajectories, utilization, provenance, missingness, and synthetic validation.
 2. **TRANS** — a private, human-reviewed document-intelligence research system whose public contribution is methodological evidence about provenance, review states, bounded evidence, release validation, and reproducibility.
 
-A second tier of public biomedical and public-health studies contributes validated evidence objects into the broader portfolio rather than functioning as competing primary anchors.
+A second tier of public biomedical and public-health studies contributes bounded evidence into the broader portfolio rather than functioning as competing primary anchors.
 
 ## Key Project — CART-TRACE
 
 Repository: [`pskeffington/CART-TRACE`](https://github.com/pskeffington/CART-TRACE)
 
-**CART-TRACE** reconstructs longitudinal hospital care trajectories around CAR T-cell therapy using treatment-relative episodes rather than isolated encounters.
+**CART-TRACE** is a synthetic-first research framework for reconstructing post-infusion hospital care trajectories following CAR T-cell therapy.
 
-Current research focus:
+The current public scholarly package includes a frozen canonical episode/state model, deterministic trajectory reconstruction, post-infusion utilization metrics, synthetic truth-set validation, reproducibility controls, and governed-data readiness methods. Institutional clinical-data application remains separate and conditional on appropriate approvals, data access, local mapping, and validation.
 
-- treatment-relative time with `day 0 = infusion`;
-- inpatient and outpatient encounters;
-- care location and level-of-care transitions;
-- high-acuity escalation and de-escalation;
-- length of stay and discharge timing;
-- 7-day and 30-day acute-care reuse;
-- provenance, missingness, and reproducible transformation rules;
-- descriptive care phenotypes without turning those phenotypes into clinical recommendations.
-
-The current thesis-level question is how longitudinal clinical data can characterize hospital resource utilization and transitions in level of care following CAR T-cell therapy.
-
-CART-TRACE is synthetic-first in public development and is **not** a clinical decision-support system. It does not diagnose toxicity, issue alerts, recommend transfer/discharge/treatment, or represent research associations as bedside guidance. Any future institutional-data work must occur under appropriate governance and approvals.
+CART-TRACE is **not** a clinical decision-support system. It does not determine treatment eligibility, diagnose toxicity, issue prospective alerts, recommend transfer/discharge/treatment, or treat synthetic validation as evidence of external clinical validity.
 
 ## Supporting Biomedical and Public-Health Evidence Lanes
 
@@ -48,7 +37,11 @@ CART-TRACE is synthetic-first in public development and is **not** a clinical de
 | `Haiti-nippes` | regional public-health systems research | supporting study |
 | `WASH` | environmental health and spatial equity | supporting study |
 
-Validated outputs from these repositories should be promoted through a common portfolio evidence envelope that records provenance, observation period, transformation version, validation status, uncertainty/missingness, claim boundaries, and stable artifact paths. Repository-specific scientific schemas remain domain-specific.
+Validated outputs from these repositories should be promoted through a common portfolio evidence envelope recording provenance, transformation version, validation status, uncertainty/missingness, claim boundaries, and stable artifact paths. Repository-specific scientific schemas remain domain-specific.
+
+### Current ECG evidence boundary
+
+`ECG-denoising` now has an executable Phase 1 NSTDB benchmark pathway and a formal public benchmark-freeze protocol. This supports a claim of an executable, provenance-controlled non-clinical benchmark pathway. Comparative method or morphology-preservation claims remain gated on a reviewed freeze packet, reproducibility evidence, and morphology-preservation review.
 
 ## Evidence Promotion Rule
 
@@ -61,7 +54,18 @@ raw/public source
   -> CV / public portfolio claim
 ```
 
-A public CV or portfolio claim should not precede the underlying validated evidence object.
+A public CV or portfolio claim should not precede the underlying evidence object.
+
+## Active Private Supporting Systems
+
+Several private repositories have substantive current research roles and are not archive candidates merely because they are private:
+
+- `Plymouth` — municipal GIS/provenance and civic-planning research workspace;
+- `Control` — evidence-contract, validation, and bounded automation-policy research;
+- `ml-lab` — pre-pilot ML-assisted, human-adjudicated healthcare-document review research;
+- `cipher-topology-lab` — computational-topology, randomness-diagnostic, and provenance research.
+
+Public references to these repositories should remain generalized and claim-bounded. Private paths, sensitive materials, configurations, contact data, or implementation details should not migrate into this public status surface.
 
 ## TRANS Research Program
 
@@ -73,33 +77,11 @@ ctl-injest
   -> trans-downstream
 ```
 
-Current TRANS program state:
-
-- five repository authority boundaries are documented and cross-aligned;
-- installed-wheel Python 3.11 ecosystem proofs are available;
-- exact adjacent artifact correlation is preserved across the pipeline;
-- the active `trans` research candidate remains human-review gated;
-- release approval is independently correlated rather than inferred from candidacy or interface state;
-- downstream projection remains dry-run by default;
-- bounded evidence receipts do not retain unrestricted source payloads;
-- external delivery remains disabled unless separately authorized and evidenced;
-- Python 3.12, exact-candidate remote CI, independent handwriting benchmarking, and hosted staging remain current validation gates.
-
-### Active TRANS repositories
-
-| Repository | Visibility | Current Role | Status |
-|---|---|---|---|
-| `ctl-injest` | private | source admission, classification, governed run planning, orchestration receipts | Active research |
-| `Eagle-Eye` | private | source facts, page/frame identity, bounded visual observations | Active research |
-| `trans` | private | reconciliation, transcript/document packets, handwriting processing, review projection | Active research |
-| `trans-release` | private | QA, independent approval correlation, release eligibility | Active research |
-| `trans-downstream` | private | bounded projection, destination planning, dry-run delivery receipts | Active research |
-
-A later layer may narrow eligibility but must not silently promote an earlier blocked, review-required, blank, negative, or held state.
+TRANS remains a private, human-reviewed research system. Its public-facing description should remain limited to architecture, provenance, validation, reproducibility, review-state controls, and sanitized aggregate evidence. Private source payloads and implementation details remain out of scope for public documentation.
 
 ## Repository Governance
 
-The portfolio now uses five dispositions:
+The portfolio uses five dispositions:
 
 1. public anchor;
 2. supporting study;
@@ -109,7 +91,7 @@ The portfolio now uses five dispositions:
 
 This classification is a maintenance rule, not an automatic archive/delete policy. Small, experimental, duplicate, or weakly differentiated repositories should receive dependency/content review before additional routine maintenance.
 
-Current-facing README material should describe only present project state. Historical baselines, superseded architecture, older milestones, and prior weekly activity belong in dated documentation rather than on headline repository pages.
+Current-facing README material should describe present project state. Historical baselines, superseded architecture, older milestones, and prior weekly activity belong in dated documentation rather than headline repository pages.
 
 Research scaffolds should not receive cosmetic commits solely to make them appear recent. A stable repository can remain unchanged when its scope, evidence status, limitations, and next actions are still accurate.
 
@@ -121,21 +103,21 @@ Research scaffolds should not receive cosmetic commits solely to make them appea
 | `README` | sanitized portfolio governance/status surface |
 | `CV-Public-Facing` | public professional evidence surface |
 
-Other public research repositories are supporting studies as described above. `trans-latin` is currently private and is not listed as a public scholarly repository.
+Other public research repositories are supporting studies as described above. `Best-Practices-Git` functions as a reusable public research-method standard. `Family_and_Economic_issues` and `St.-Bonaventure` remain independently mature scholarly projects rather than portfolio anchors. `kosher-eats-south-shore` is a non-core community-information utility.
 
 ## Security and Public-Interest Boundary
 
-This public repository does not reproduce private implementation details, credentials, raw source media, unrestricted OCR, governed source text, private storage locations, PHI, or restricted records.
+This public repository does not reproduce private implementation details, credentials, raw source media, governed source text, private storage locations, PHI, restricted records, or sensitive operational information.
 
 Public-facing documentation may describe research goals, architecture, validation status, reproducibility methods, limitations, scholarly publication direction, and sanitized aggregate evidence.
 
-Public CART-TRACE development must remain synthetic-first unless a separately governed institutional workflow is established. Public TRANS documentation must remain sanitized and bounded. Public biomedical and humanitarian repositories should remain scholarly, source-bounded, non-operational, and explicit about unsupported claims.
+Public biomedical, civic, and humanitarian repositories should remain scholarly, source-bounded, non-operational, and explicit about unsupported claims.
 
 ## Storyboard and Weekly Status
 
 The current project narrative is maintained in [`docs/storyboard.md`](docs/storyboard.md).
 
-Current weekly snapshot: [`docs/weekly/2026-08-17.md`](docs/weekly/2026-08-17.md).
+Current weekly repository sweep: [`docs/weekly/2026-08-21.md`](docs/weekly/2026-08-21.md).
 
 Repository classification and evidence architecture: [`docs/repository-architecture.md`](docs/repository-architecture.md).
 
