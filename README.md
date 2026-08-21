@@ -10,10 +10,10 @@ The repository estate is maintained as a tiered research portfolio rather than a
 
 Two programs anchor the research narrative:
 
-1. **CART-TRACE** — the principal public translational-health data-science anchor, focused on reproducible post-infusion CAR T-cell care trajectories, utilization, provenance, missingness, and synthetic validation.
+1. **CART-TRACE** — the principal public translational-health data-science anchor, focused on reproducible post-infusion CAR T-cell care trajectories, utilization, provenance, missingness, synthetic validation, and a separate synthetic administrative access-gating research extension.
 2. **TRANS** — a private, human-reviewed document-intelligence research system whose public contribution is methodological evidence about provenance, review states, bounded evidence, release validation, and reproducibility.
 
-A second tier of public biomedical and public-health studies contributes bounded evidence into the broader portfolio rather than functioning as competing primary anchors.
+A second tier of biomedical and public-health studies contributes bounded evidence into the broader portfolio rather than functioning as competing primary anchors. Visibility is repository-specific and may change; supporting-study status does not imply public visibility.
 
 ## Key Project — CART-TRACE
 
@@ -21,21 +21,23 @@ Repository: [`pskeffington/CART-TRACE`](https://github.com/pskeffington/CART-TRA
 
 **CART-TRACE** is a synthetic-first research framework for reconstructing post-infusion hospital care trajectories following CAR T-cell therapy.
 
-The current public scholarly package includes a frozen canonical episode/state model, deterministic trajectory reconstruction, post-infusion utilization metrics, synthetic truth-set validation, reproducibility controls, and governed-data readiness methods. Institutional clinical-data application remains separate and conditional on appropriate approvals, data access, local mapping, and validation.
+The current public scholarly capstone package includes a frozen canonical episode/state model, deterministic trajectory reconstruction, post-infusion utilization metrics, synthetic truth-set validation, reproducibility controls, and governed-data readiness methods. Institutional clinical-data application remains separate and conditional on appropriate approvals, data access, local mapping, and validation.
 
-CART-TRACE is **not** a clinical decision-support system. It does not determine treatment eligibility, diagnose toxicity, issue prospective alerts, recommend transfer/discharge/treatment, or treat synthetic validation as evidence of external clinical validity.
+A separate synthetic research extension now models administrative access events across referral, program review, facility, network, payer, Medicare, financial-clearance, and derived access states. This extension is outside the frozen capstone scope and is maintained for retrospective methods research only. It does not determine clinical eligibility, insurance coverage, treatment readiness, or authorization decisions.
+
+CART-TRACE is **not** a clinical decision-support system. It does not determine treatment eligibility, diagnose toxicity, issue prospective alerts, recommend transfer/discharge/treatment, adjudicate payer coverage, or treat synthetic validation as evidence of external clinical validity.
 
 ## Supporting Biomedical and Public-Health Evidence Lanes
 
-| Repository | Evidence lane | Portfolio role |
-|---|---|---|
-| `ECG-denoising` | biomedical signal evaluation | supporting study |
-| `pet-noise-radiomics-robustness` | imaging robustness | supporting study |
-| `cancer-eol-death-place-typologies` | health-services research | supporting study |
-| `Public-Health-Emergency-Preparedness---Dartmouth-Health` | preparedness systems research | supporting study |
-| `Gaza-WASH` | humanitarian secondary-data research | supporting study |
-| `Haiti-nippes` | regional public-health systems research | supporting study |
-| `WASH` | environmental health and spatial equity | supporting study |
+| Repository | Evidence lane | Portfolio role | Current visibility |
+|---|---|---|---|
+| `ECG-denoising` | biomedical signal evaluation | supporting study | public |
+| `pet-noise-radiomics-robustness` | imaging robustness | supporting study | public |
+| `cancer-eol-death-place-typologies` | health-services research | supporting study | public |
+| `Public-Health-Emergency-Preparedness---Dartmouth-Health` | preparedness systems research | supporting study | private |
+| `Gaza-WASH` | humanitarian secondary-data research | supporting study | public |
+| `Haiti-nippes` | regional public-health systems research | supporting study | public |
+| `WASH` | environmental health and spatial equity | supporting study | public |
 
 Validated outputs from these repositories should be promoted through a common portfolio evidence envelope recording provenance, transformation version, validation status, uncertainty/missingness, claim boundaries, and stable artifact paths. Repository-specific scientific schemas remain domain-specific.
 
@@ -63,9 +65,10 @@ Several private repositories have substantive current research roles and are not
 - `Plymouth` — municipal GIS/provenance and civic-planning research workspace;
 - `Control` — evidence-contract, validation, and bounded automation-policy research;
 - `ml-lab` — pre-pilot ML-assisted, human-adjudicated healthcare-document review research;
-- `cipher-topology-lab` — computational-topology, randomness-diagnostic, and provenance research.
+- `cipher-topology-lab` — computational-topology, randomness-diagnostic, and provenance research;
+- `Public-Health-Emergency-Preparedness---Dartmouth-Health` — preparedness systems research with a scholarly, explicitly non-operational boundary.
 
-Public references to these repositories should remain generalized and claim-bounded. Private paths, sensitive materials, configurations, contact data, or implementation details should not migrate into this public status surface.
+Public references to private repositories should remain generalized and claim-bounded. Private paths, sensitive materials, configurations, contact data, or implementation details should not migrate into this public status surface.
 
 ## TRANS Research Program
 
