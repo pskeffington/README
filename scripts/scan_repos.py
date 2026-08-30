@@ -65,11 +65,11 @@ def request_json(url: str, token: str | None) -> Any:
         raise RuntimeError(f"GitHub request failed: {exc.code} {url} {body}") from exc
 
 
-def collect_repos(owner: str, token: str | None) -> list[dict[str, Any]]:
+def collect_repos(owner: str, token: str | None, include_private: bool = False) -> list[dict[str, Any]]:
     repos: list[dict[str, Any]] = []
     page = 1
     while True:
-        if token:
+        if include_private:
             url = (
                 "https://api.github.com/user/repos"
                 f"?per_page=100&page={page}&affiliation=owner,collaborator,organization_member"
@@ -174,7 +174,8 @@ def sanitize_repo(
 def main() -> int:
     policy = load_policy()
     owner = os.environ.get("REPO_OWNER") or str(policy.get("owner") or "pskeffington")
-    token = os.environ.get("REPO_SCAN_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    private_token = os.environ.get("REPO_SCAN_TOKEN")
+    token = private_token or os.environ.get("GITHUB_TOKEN")
     public_status_repo = policy_text(policy, "public_status_repo", "PUBLIC_STATUS_REPO", "README")
     configured_operational = policy_names(policy, "operational_repos", "OPERATIONAL_REPOS", "Eagle-Eye,trans")
     configured_public_scholarly = policy_names(
@@ -193,7 +194,7 @@ def main() -> int:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
 
-    repos = collect_repos(owner, token)
+    repos = collect_repos(owner, token, include_private=bool(private_token))
     scanned_at = now_iso()
     sanitized = [
         sanitize_repo(

@@ -2,7 +2,7 @@
 
 This repository is the public, sanitized status surface for active research programs and repository governance.
 
-## Current Status — 2026-08-22
+## Current Status — 2026-08-30
 
 Default branch: `main`  
 Shared TRANS-family documentation branch: `docs/trans-family-sync-2026-08-22`
@@ -28,9 +28,9 @@ Cross-access registry: [`docs/TRANS_FAMILY_ACCESS.md`](docs/TRANS_FAMILY_ACCESS.
 
 ### Current TRANS state
 
-`trans` has merged model-provenance propagation through H2 admission, bundle, benchmark, and evaluation receipts. The active HTR hardening lane is validating canonical Bentham R0 artifact identity, the pinned TrOCR model identity, and provenance self-digests before any real held-out benchmark is admitted. No real Bentham CER/WER or performance claim is currently frozen.
+`trans` now has reviewed checkpoint admission and resolution, candidate-only bounded inference, frozen calibration and review routing, and background-spectrum assessment contracts. These are control-plane capabilities: no real training corpus, approved production checkpoint, held-out CER/WER, background-robustness result, or writer-identification claim is frozen. The next cross-repository proof is an installed Eagle-Eye crop/background packet joined to the exact TRANS adapter and review-decision receipts.
 
-Upstream repositories remain responsible for source admission and visual evidence; `trans-release` remains responsible for independent eligibility/approval correlation; `trans-downstream` remains bounded to eligible projection and dry-run planning; `trans-latin` and `Trans-heb` retain final scholarly authority for accepted language-specific readings.
+Upstream repositories remain responsible for permissioned source admission and bounded visual evidence; `trans-release` remains responsible for independent eligibility/approval correlation; `trans-downstream` remains bounded to eligible projection and dry-run planning; `trans-latin` and `Trans-heb` retain final scholarly authority for accepted language-specific readings. Background metadata or handwriting similarity may route review, but cannot establish identity, authorship, authenticity, source truth, or scholarly acceptance.
 
 TRANS remains private. Public descriptions should stay limited to architecture, methodology, provenance, validation, review-state controls, reproducibility, and sanitized aggregate evidence.
 

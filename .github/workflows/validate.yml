@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6.3.0
         with:
           python-version: "3.12"
 
@@ -28,7 +28,7 @@ jobs:
         run: python scripts/validate_policy.py
 
       - name: Validate Python syntax
-        run: python -m py_compile scripts/scan_repos.py scripts/render_status.py scripts/validate_policy.py tests/test_policy.py
+        run: python -m py_compile scripts/scan_repos.py scripts/render_status.py scripts/validate_policy.py tests/test_policy.py tests/test_scan_repos.py
 
       - name: Run policy tests
         run: python -m unittest discover -s tests -p "test_*.py"

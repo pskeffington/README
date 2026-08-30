@@ -161,6 +161,10 @@ Last automated update: {scanned_at}
 
 Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). Weekly snapshots are written under [`docs/weekly/`](docs/weekly/).
 
+## TRANS Research Boundary
+
+The current private TRANS HTR control plane includes reviewed checkpoint admission and resolution, bounded candidate inference, frozen calibration and review routing, and background-spectrum assessment. No real training corpus, approved production checkpoint, held-out CER/WER, background-robustness result, writer identity, or authorship claim is frozen. Background metadata and handwriting similarity may route human review but cannot establish identity, authorship, authenticity, source truth, or scholarly acceptance.
+
 ## Repository Governance
 
 Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in this README and in the weekly snapshot.
@@ -169,7 +173,7 @@ Operational repositories should remain private. Public scholarly translation rep
 
 The weekly scan is defined in [`.github/workflows/weekly-repo-scan.yml`](.github/workflows/weekly-repo-scan.yml).
 
-To scan private repositories, add a repository secret named `REPO_SCAN_TOKEN` with permission to read the target repositories and write contents to this repository. Without that secret, the workflow can only report on repositories visible to the default token.
+The default `GITHUB_TOKEN` authenticates the public owner scan. To include private repositories, add an explicit repository secret named `REPO_SCAN_TOKEN` with permission to read the target repositories. The scanner uses the authenticated `/user/repos` endpoint only when that explicit token is present.
 """
 
 
