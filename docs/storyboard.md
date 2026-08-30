@@ -27,7 +27,7 @@ CART-TRACE is not a clinical decision-support system and public development must
 
 ### TRANS
 
-The TRANS program is a five-repository, human-reviewed document-intelligence research pipeline:
+The TRANS program is a five-stage, human-reviewed document-intelligence research pipeline with two language-specific scholarly branches:
 
 ```text
 ctl-injest
@@ -35,6 +35,8 @@ ctl-injest
   -> trans
   -> trans-release
   -> trans-downstream
+  |-> trans-latin
+  `-> Trans-heb
 ```
 
 Each repository has a distinct authority boundary:
@@ -44,6 +46,7 @@ Each repository has a distinct authority boundary:
 - `trans` performs reconciliation, bounded text/document processing, handwriting analysis, and review projection;
 - `trans-release` performs QA and independent approval correlation;
 - `trans-downstream` produces bounded projections and dry-run delivery receipts.
+- `trans-latin` and `Trans-heb` own language-specific scholarly acceptance and publication truth.
 
 A later layer may narrow eligibility but must not silently promote an earlier blocked, review-required, blank, negative, or held state.
 
@@ -66,11 +69,11 @@ Current acceptance indicators:
 
 ### TRANS milestone
 
-**Milestone: reproducible, review-gated five-repository candidate**
+**Milestone: reproducible, review-gated processing candidate**
 
 Current acceptance indicators:
 
-- exact five-repository version set;
+- exact processing-repository version set;
 - installed-wheel proof on Python 3.11 and Python 3.12;
 - remote CI for the same sealed candidate;
 - exact adjacent artifact joins;
@@ -79,6 +82,10 @@ Current acceptance indicators:
 - explicit independent release approval correlation;
 - downstream dry-run default;
 - fail-closed behavior for malformed, mismatched, changed-hash, missing-approval, and conflicting-retry cases.
+- checkpoint admission/resolution, bounded candidate inference, frozen calibration, and review-decision receipts;
+- background-spectrum metadata used only for robustness assessment and review routing, never writer identity or authorship.
+
+No real training corpus, approved production checkpoint, held-out CER/WER, background-robustness result, or identity claim is currently frozen.
 
 ## Current Scholarly Direction
 
@@ -103,12 +110,12 @@ Neither program is presented as an autonomous clinical, legal, policy, or instit
 
 ### TRANS
 
-1. Seal the next five-repository candidate.
+1. Prove an installed Eagle-Eye crop/background packet through the exact TRANS adapter and review-decision receipts.
 2. Run installed-wheel proofs on Python 3.11 and Python 3.12.
 3. Capture remote CI for the exact version set.
-4. Resolve review/merge status for the active `trans` candidate.
+4. Admit real documents only after permissions, retention, de-identification, split governance, and reviewer protocol are approved.
 5. Run the complete failure-state and approval-correlation matrix.
-6. Build the independent handwriting benchmark and reviewer protocol.
+6. Build an independent background-stratified handwriting benchmark and reviewer protocol without identity or authorship claims.
 7. Consolidate the evidence-room manifest and research/deployment risk register.
 8. Complete hosted staging controls before making deployment claims.
 
