@@ -2,8 +2,20 @@
   "owner": "pskeffington",
   "scanned_at": "2026-08-31T18:42:24+00:00",
   "repo_count": 13,
-  "security_flags": [],
-  "projects": [
+  "policy": {
+    "public_status_repo": "README",
+    "operational_repos": [
+      "Eagle-Eye",
+      "ctl-injest",
+      "trans",
+      "trans-downstream",
+      "trans-release"
+    ],
+    "public_scholarly_repos": [
+      "trans-latin"
+    ]
+  },
+  "repos": [
     {
       "name": "WASH",
       "full_name": "pskeffington/WASH",
