@@ -1,128 +1,71 @@
 # Storyboard
 
-This file tracks the current public-facing research narrative without reproducing private implementation detail.
+This file tracks the current public-facing portfolio narrative without reproducing private implementation detail.
 
-## Current Frame
+## Current frame
 
-The portfolio currently has two key research programs.
+The portfolio is a coordinated set of evidence-preserving research and software programs. The active narrative has five connected but separately governed groups:
 
-### CART-TRACE
+1. **Local sensing and resilient communications** — local-first, receive-only dashboards for authorized RF, aviation metadata, SDR, environmental inputs, provenance, and network-disjointed field use.
+2. **Evidence and document intelligence** — human-reviewed source admission, visual evidence, bounded text processing, independent release validation, and downstream reporting.
+3. **Municipal health and continuity** — GIS, public-health indicators, continuity planning, accessibility, communications, and environmental decision-support research.
+4. **Global public-health analytics** — governed public-health source ingestion, normalization, freshness monitoring, and regional analytical presentation.
+5. **Clinical and systems research** — synthetic-first CAR-T trajectory research, biomedical signal processing, and hardware/edge validation.
 
-`CART-TRACE` is a public, synthetic-first research framework for longitudinal hospital care trajectories around CAR T-cell therapy, supporting Dartmouth CAR T-cell program research.
+These groups share a common design principle: preserve provenance, distinguish observation from inference, expose uncertainty, and keep authority boundaries explicit.
 
-Current emphasis:
+## Active public narrative
 
-- treatment-relative episode reconstruction;
-- inpatient/outpatient trajectory mapping;
-- care-location and level-of-care transitions;
-- high-acuity escalation and de-escalation;
-- length of stay and discharge timing;
-- 7-day and 30-day acute-care reuse;
-- provenance, missingness, and reproducible transformation rules;
-- descriptive care phenotypes without clinical recommendation.
+### Local sensing
 
-The primary unit is the CAR T-cell therapy episode rather than the isolated encounter.
+The local sensing program is developing a recognizable operator surface for local, controlled-network, network-disjointed, or air-gapped use. Current public-safe themes include aircraft and map presentation, source health, receive-only SDR display, local history, freshness, and bounded adapter contracts.
 
-CART-TRACE is not a clinical decision-support system and public development must not contain PHI, production credentials, or patient-identifying free text.
+The system is a research and engineering platform. It does not claim airspace control, targeting authority, identity determination, or automatic operational direction.
 
-### TRANS
+### Evidence and document intelligence
 
-The TRANS program is a five-stage, human-reviewed document-intelligence research pipeline with two language-specific scholarly branches:
+The TRANS family remains a staged, human-reviewed document-evidence program:
 
 ```text
-ctl-injest
-  -> Eagle-Eye
-  -> trans
-  -> trans-release
-  -> trans-downstream
-  |-> trans-latin
-  `-> Trans-heb
+source admission
+  -> visual/page evidence
+  -> bounded processing
+  -> independent review
+  -> release validation
+  -> evidence-only downstream projection
 ```
 
-Each repository has a distinct authority boundary:
+Each stage has a separate authority boundary. A blocked, uncertain, malformed, stale, or review-required state cannot be silently promoted by a later stage.
 
-- `ctl-injest` governs source admission, classification, and run planning;
-- `Eagle-Eye` preserves source facts, page/frame identity, and bounded visual observations;
-- `trans` performs reconciliation, bounded text/document processing, handwriting analysis, and review projection;
-- `trans-release` performs QA and independent approval correlation;
-- `trans-downstream` produces bounded projections and dry-run delivery receipts.
-- `trans-latin` and `Trans-heb` own language-specific scholarly acceptance and publication truth.
+### Municipal and public-health work
 
-A later layer may narrow eligibility but must not silently promote an earlier blocked, review-required, blank, negative, or held state.
+Municipal and public-health projects translate source-bounded records into reproducible GIS, continuity, indicator, accessibility, and communication artifacts. The public narrative emphasizes data freshness, owner verification, uncertainty, and human decision support rather than automated authority.
 
-## Current Research Milestones
+### Clinical and systems research
 
-### CART-TRACE milestone
+CART-TRACE remains a synthetic-first framework for reconstructing post-infusion CAR-T hospital care trajectories. Systems and biomedical projects remain research programs requiring reproducible validation before broader claims or real-world application.
 
-**Milestone: reproducible CAR T-cell episode reconstruction**
+## Current research milestones
 
-Current acceptance indicators:
+- Local sensing: refined aircraft-class presentation, receive-only SDR contracts, source-bound roster data, and local operator-surface work are active; live-feed and disconnected-operation validation remain open.
+- TRANS: bounded checkpoint/review evidence, identity-bound handoffs, explicit release approval, and dry-run downstream behavior are established research targets; real performance and authorship claims remain un-frozen.
+- Municipal/public health: GIS, continuity, source freshness, accessibility, and communications lanes are advancing under documented owner-verification gates.
+- CART-TRACE: the synthetic scholarly package is frozen; any real clinical-data work requires governed authorization and appropriate review.
+- Portfolio governance: public repositories remain sanitized; private work is summarized only at group level on this page.
 
-- episode schema defined;
-- treatment-relative time represented consistently;
-- care-state vocabulary defined;
-- synthetic trajectories available;
-- transition reconstruction reproducible;
-- utilization metrics explicitly derived;
-- provenance and missingness retained;
-- no clinical alerts, diagnoses, treatment recommendations, or bedside authority claims.
+## Next frame
 
-### TRANS milestone
+1. Keep current status synchronized with verified repository activity.
+2. Improve browser and live-feed validation for local operator surfaces.
+3. Preserve evidence-boundary and fail-closed behavior across the TRANS family.
+4. Advance municipal and public-health source freshness, owner confirmation, and accessibility gates.
+5. Maintain synthetic-first and privacy-preserving defaults for clinical and biomedical research.
+6. Exclude stale, dormant, exploratory, and archival projects from the active public narrative.
 
-**Milestone: reproducible, review-gated processing candidate**
-
-Current acceptance indicators:
-
-- exact processing-repository version set;
-- installed-wheel proof on Python 3.11 and Python 3.12;
-- remote CI for the same sealed candidate;
-- exact adjacent artifact joins;
-- no raw source payloads in bounded proof receipts;
-- mandatory handwriting review for uncertain candidates;
-- explicit independent release approval correlation;
-- downstream dry-run default;
-- fail-closed behavior for malformed, mismatched, changed-hash, missing-approval, and conflicting-retry cases.
-- checkpoint admission/resolution, bounded candidate inference, frozen calibration, and review-decision receipts;
-- background-spectrum metadata used only for robustness assessment and review routing, never writer identity or authorship.
-
-No real training corpus, approved production checkpoint, held-out CER/WER, background-robustness result, or identity claim is currently frozen.
-
-## Current Scholarly Direction
-
-Across both programs, the research emphasis is on transparent, auditable, reproducible evidence.
-
-For CART-TRACE, the scholarly objective is to characterize longitudinal hospital resource utilization and transitions in level of care following CAR T-cell therapy without turning descriptive patterns into clinical directives.
-
-For TRANS, the scholarly objective is auditable, provenance-preserving, human-reviewed document processing.
-
-Neither program is presented as an autonomous clinical, legal, policy, or institutional decision system.
-
-## Current Next Frame
-
-### CART-TRACE
-
-1. Freeze the episode schema and care-state vocabulary.
-2. Expand synthetic treatment-relative trajectories.
-3. Validate transition reconstruction and utilization metrics.
-4. Define missingness and provenance checks.
-5. Prepare reproducible descriptive analyses before institutional-data work.
-6. Keep all public artifacts synthetic, permissioned, redacted, or otherwise appropriate for public release.
-
-### TRANS
-
-1. Prove an installed Eagle-Eye crop/background packet through the exact TRANS adapter and review-decision receipts.
-2. Run installed-wheel proofs on Python 3.11 and Python 3.12.
-3. Capture remote CI for the exact version set.
-4. Admit real documents only after permissions, retention, de-identification, split governance, and reviewer protocol are approved.
-5. Run the complete failure-state and approval-correlation matrix.
-6. Build an independent background-stratified handwriting benchmark and reviewer protocol without identity or authorship claims.
-7. Consolidate the evidence-room manifest and research/deployment risk register.
-8. Complete hosted staging controls before making deployment claims.
-
-## Public Narrative Boundary
+## Public narrative boundary
 
 Public status text may describe research goals, architecture, contracts, validation, reproducibility, limitations, and sanitized aggregate evidence.
 
-It must not expose credentials, PHI, private payloads, unrestricted OCR or source text, private storage locations, restricted records, or unsupported claims of automated clinical or institutional authority.
+It must not expose credentials, PHI, private payloads, unrestricted OCR or source text, private storage locations, restricted records, sensitive operational procedures, or unsupported claims of automated clinical, legal, policy, institutional, or emergency authority.
 
 Historical milestones and superseded project framing belong in dated weekly snapshots rather than this current storyboard.
