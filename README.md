@@ -1,68 +1,56 @@
 # Skeffington Repository Status
 
-This repository is public by design. It provides a sanitized weekly status surface for project coordination, storyboard tracking, public scholarly translation objects, and repository governance.
+This public repository provides a sanitized portfolio status surface for current research, software, public-health, infrastructure-resilience, and scholarly projects.
 
-## Status
+## Current status
 
-Last automated update: 2026-09-07T12:14:00+00:00
+Last status refresh: 2026-09-11
 
-| Area | Current State |
+| Area | Current state |
 |---|---|
-| Repository scan | 13 visible repositories scanned |
-| Project status | Updated from `data/project_status.json` |
-| Storyboard | Maintained in `docs/storyboard.md` |
-| Security review | 0 public operational flags |
+| Accessible repositories scanned | 55 |
+| Public repositories | 13 |
+| Private repositories | 42 |
+| Public operational flags | 0 detected |
+| Portfolio posture | Active, evidence-preserving development |
 
-## Repository Categories
+## Portfolio direction
 
-| Category | Count |
-|---|---:|
-| Operational | 0 |
-| Public scholarly | 0 |
-| Public | 13 |
-| Private support | 0 |
+The portfolio is organized around evidence-preserving systems for public health, infrastructure resilience, clinical-data research, document analysis, geospatial work, and controlled local sensing. Each project has its own scope and review boundary; work is not automatically promoted between projects.
 
-## Operational Repositories
+Private projects are summarized below at the group level. Sensitive implementation details, credentials, raw source material, operational procedures, and internal repository identifiers are intentionally excluded from this public page.
 
-No operational repositories were detected in the latest visible scan.
+## Active private project groups
 
-## Public Scholarly Translation Repositories
+| Group | Public-safe summary | Current focus |
+|---|---|---|
+| Local sensing and resilient communications | Local-first, receive-only dashboards for authorized RF, aviation metadata, SDR, environmental inputs, and network-disjointed field use. | Aircraft/map presentation, source health, provenance, local history, and disconnected-operation validation. |
+| Evidence and document intelligence | A multi-stage evidence workflow for source admission, visual/page evidence, bounded text processing, independent review, release validation, and downstream reporting. | Reproducibility, identity-bound handoffs, human review, fail-closed release boundaries, and browser-validated operator views. |
+| Municipal health and continuity | Public-health, GIS, continuity-of-operations, environmental, communications, and accessibility planning for municipal decision support. | Data freshness, owner verification, emergency-continuity evidence, accessibility, and public-safe reporting. |
+| Global public-health analytics | A separate dashboard lane for governed public-health source ingestion and regional analytical presentation. | Source freshness, bounded normalization, ingest monitoring, and production/browser validation. |
+| Systems and hardware research | Private technical research into local compute, edge devices, signal processing, and reproducible hardware/software interfaces. | Hardware-grounded experiments, documentation, and validation before any release claim. |
 
-No public scholarly repositories were detected in the latest visible scan.
+## Selected active public projects
 
-## Active Workstreams
+- [WASH](https://github.com/pskeffington/WASH) — alternative-water systems and locally repairable treatment architectures.
+- [CART-TRACE](https://github.com/pskeffington/CART-TRACE) — synthetic-first reconstruction of post-infusion CAR-T hospital care trajectories.
+- [Best-Practices-Git](https://github.com/pskeffington/Best-Practices-Git) — auditable learning, citation integrity, and evidence-ready AI research.
+- [ECG-denoising](https://github.com/pskeffington/ECG-denoising) — reproducible biomedical signal-denoising review and benchmark.
+- [pet-noise-radiomics-robustness](https://github.com/pskeffington/pet-noise-radiomics-robustness) — PET image-noise, radiomics stability, and model-reliability research.
+- [cancer-eol-death-place-typologies](https://github.com/pskeffington/cancer-eol-death-place-typologies) — open-data cancer end-of-life geography research.
+- [CV-Public-Facing](https://github.com/pskeffington/CV-Public-Facing) — public-facing professional profile and resume surface.
 
-| Project | Category | Visibility | Status | Last Activity | Notes |
-|---|---:|---:|---:|---:|---|
-| README | Public | public | Active | 2026-08-31 | Statusboard of the REPOS, current projects, and timelines. |
-| WASH | Public | public | Active | 2026-08-31 | WASH |
-| CART-TRACE | Public | public | Active | 2026-08-31 | Synthetic-first research framework for reproducible reconstruction of 30-day post-CAR-T hospital level-of-care trajectories from longitudinal encounter and location data. |
-| CV-Public-Facing | Public | public | Warm | 2026-08-22 | This repo pulls from the private repo of verified datum and pulls a live CV, and Resume for the user. Engage the workflow to produce an updated copy! |
-| ECG-denoising | Public | public | Warm | 2026-08-21 | Reproducible ECG denoising review and benchmark using open PhysioNet datasets to compare filtering, wavelet, adaptive, and lightweight deep-learning noise-reduction methods. |
-| Haiti-nippes | Public | public | Warm | 2026-08-18 | No public note. |
-| St.-Bonaventure | Public | public | Warm | 2026-08-18 | Research and indexing workspace for documenting a St. Bonaventure archive collection, image organization, label transcription, object registers, and publication-ready historical notes. |
-| Family_and_Economic_issues | Public | public | Warm | 2026-08-18 | Reproducible LaTeX manuscript workspace for NLSY79 research on financial preparedness, reproductive education, marital stability, fertility, and family formation. |
-| Gaza-WASH | Public | public | Warm | 2026-08-18 | Open-data public-health research workspace for Gaza WASH disruption, environmental-health risk stratification, health-service access, displacement context, and reproducible spatial analysis. |
-| Best-Practices-Git | Public | public | Warm | 2026-08-18 | Science-abstract ML system for auditable learning, citation integrity, and evidence-ready AI research. |
-| cancer-eol-death-place-typologies | Public | public | Warm | 2026-08-18 | County-level cancer end-of-life death-place typologies using CDC WONDER, Dartmouth Atlas, CMS, HRSA, and ACS open data. |
-| pet-noise-radiomics-robustness | Public | public | Warm | 2026-08-18 | Reproducible biomedical imaging research workspace evaluating PET image-noise effects on lesion segmentation, radiomics feature stability, and downstream model reliability. |
-| kosher-eats-south-shore | Public | public | Warm | 2026-08-18 | No public note. |
+Older, dormant, exploratory, and primarily archival repositories are intentionally excluded from this active-project summary. Their existence does not imply current development or maintained release status.
 
-## Security Review
+## Research and safety boundary
 
-No public operational repository flags were detected in the latest visible scan.
+Public repositories contain only intentionally public documentation, scholarly artifacts, demonstrations, or sanitized research material. Private repositories may contain controlled implementation work, but private status alone does not authorize collection, retention, publication, or operational use.
+
+Analytical outputs are research or decision-support artifacts unless a project explicitly documents a separate authority, validation, and release process. They do not independently establish identity, authorship, incident status, legal authority, clinical advice, infrastructure readiness, or operational direction.
 
 ## Storyboard
 
 Storyboard notes are maintained in [`docs/storyboard.md`](docs/storyboard.md). Weekly snapshots are written under [`docs/weekly/`](docs/weekly/).
-
-## TRANS Research Boundary
-
-The current private TRANS HTR control plane includes reviewed checkpoint admission and resolution, bounded candidate inference, frozen calibration and review routing, and background-spectrum assessment. No real training corpus, approved production checkpoint, held-out CER/WER, background-robustness result, writer identity, or authorship claim is frozen. Background metadata and handwriting similarity may route human review but cannot establish identity, authorship, authenticity, source truth, or scholarly acceptance.
-
-## Repository Governance
-
-Operational repositories should remain private. Public scholarly translation repositories may remain public for free scholarly use when they contain only intentionally public materials. Other public repositories should contain only sanitized documentation, demonstrations, research material, portfolio material, or public-facing coordination notes. If a repository is classified as operational and is found public, the weekly scanner flags it in this README and in the weekly snapshot.
 
 ## Automation
 
