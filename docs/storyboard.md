@@ -29,13 +29,13 @@ The air-systems program has progressed through modular interfaces, sourcing, CAD
 
 The land program now has a bounded TAK Assurance lane with a canonical evidence schema, synthetic scenario fixtures, and deterministic connectivity/recovery testing. A separate modular ground-transport concept is being developed under human-supervised, non-weaponized, safety-first constraints. Software/evidence maturity and physical-platform maturity remain independently gated.
 
-### 4. Municipal work becomes an operator package
+### 4. Municipal work is now a reproducible operator package
 
-The Plymouth lane has advanced from a general dashboard toward a compact municipal common operating picture with production checks, calendar ingestion, source ownership, and fail-closed environmental authority controls. The next step is to package these elements as a reusable, reviewable municipal template rather than implying Town adoption or authority.
+The Plymouth lane now has production deployment evidence, a compact municipal common operating picture, exact-run validation, Town calendar/news pipelines, GIS validation, deterministic fallback synthesis, and fail-closed environmental authority controls. The next step is independent review and bounded design-partner use, not broader claims of Town adoption or authority.
 
-### 5. Local signals remain validation-gated
+### 5. Local signals are reproducible internally, not independently validated
 
-The FIDES/local-signals program continues to improve receive-only SDR packaging, supervised launch behavior, spectrum/waterfall presentation, and operator workflow. Independent reproduction, hardware-compatibility boundaries, calibration limits, and transferability review remain required before stronger claims.
+The FIDES/local-signals program now has receiver-backed native decoding, stream-identity controls, live spectrum/waterfall integration, supervised local launch behavior, build/smoke evidence, and a recognizable operator surface. The next public-safe gate is independent hardware reproduction, compatibility/failure-state validation, disconnected-operation proof, and transferability review.
 
 ### 6. TRANS focuses on cross-package proof
 
@@ -45,9 +45,9 @@ The TRANS family has a browser-verified read-only operator surface and bounded e
 
 ### Local sensing
 
-The local sensing program is developing a recognizable operator surface for local, controlled-network, network-disjointed, or air-gapped use. Current public-safe themes include aircraft and map presentation, source health, receive-only SDR display, local history, freshness, supervised local launch, and bounded adapter contracts.
+The local sensing program is developing a recognizable operator surface for local, controlled-network, network-disjointed, or air-gapped use. Current public-safe themes include aircraft and map presentation, source health, receive-only SDR display, local history, freshness, supervised local launch, exact stream identity, and bounded adapter contracts.
 
-The system is a research and engineering platform. It does not claim airspace control, targeting authority, identity determination, or automatic operational direction.
+The system is a research and engineering platform. Internal hardware-backed proof demonstrates bounded software behavior, not independent validation. It does not claim airspace control, targeting authority, identity determination, calibrated RF measurement, or automatic operational direction.
 
 ### Evidence and document intelligence
 
@@ -66,7 +66,7 @@ Each stage has a separate authority boundary. A blocked, uncertain, malformed, s
 
 ### Municipal and public-health work
 
-Municipal and public-health projects translate source-bounded records into reproducible GIS, continuity, indicator, accessibility, communications, calendar, source-registry, and operator artifacts. The public narrative emphasizes data freshness, owner verification, uncertainty, fail-closed source handling, and human decision support rather than automated authority.
+Municipal and public-health projects translate source-bounded records into reproducible GIS, continuity, indicator, accessibility, communications, calendar, source-registry, and operator artifacts. Plymouth now demonstrates repeatable internal deployment and production validation, while the public narrative still emphasizes data freshness, owner verification, uncertainty, fail-closed source handling, and human decision support rather than automated authority or institutional adoption.
 
 ### Land systems and TAK assurance
 
@@ -78,11 +78,11 @@ CART-TRACE remains a synthetic-first framework for reconstructing post-infusion 
 
 ## Current research milestones
 
-- Local sensing: refined aircraft-class presentation, receive-only SDR contracts, source-bound roster data, supervised local launch, and operator-surface work are active; independent hardware reproduction and disconnected-operation validation remain open.
+- Local sensing: receiver-backed native decoding, live spectrum/waterfall, exact stream identity, supervised local launch, refined aircraft presentation, and operator-surface work are established internal milestones; independent hardware reproduction and disconnected-operation validation remain open.
 - TRANS: authenticated read-only operator access and browser verification are established internal milestones; cross-package synchronization, independent compatibility proof, and real bounded evaluation remain open.
 - Air systems: modularity, CAD, sourcing, configuration-control, and release-preparation evidence have advanced; measured first-article and flight evidence remain open.
 - Land systems: TAK Assurance now includes reproducible internal connectivity/recovery testing; the modular rover lane remains concept/requirements work pending prototype evidence.
-- Municipal/public health: operator common-operating-picture, Town-calendar, environmental source-registry, GIS, continuity, freshness, accessibility, and communications lanes are advancing under owner-verification and production-gate controls.
+- Municipal/public health: production-live operator common-operating-picture, exact-run validation, Town calendar/news, environmental source-registry, GIS, continuity, freshness, accessibility, and communications lanes are established internal proof; external design-partner validation remains open.
 - CART-TRACE: the synthetic scholarly package remains frozen; any real clinical-data work requires governed authorization and appropriate review.
 - Portfolio governance: repository inventory is current, while manifest freshness and overlap reconciliation remain active valuation-control work.
 
